@@ -3,12 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/startScreenLayout"
+    style="@style/StartScreenConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.StartScreenFragment">
+    tools:context=".ui.StartScreenFragment"
+    >
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/startInfoTextView"
+        style="@style/HeaderTextViewStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
@@ -36,6 +39,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/endInfoTextView"
+        style="@style/HeaderTextViewStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -43,12 +47,14 @@
         app:layout_constraintBottom_toTopOf="@+id/selectThemeTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/marvelLogo"/>
+        app:layout_constraintTop_toBottomOf="@+id/marvelLogo" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/selectThemeTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginEnd="@dimen/common_spacing"
         android:layout_marginBottom="@dimen/common_spacing"
         android:gravity="center"
         android:text="@string/select_theme_text"
@@ -69,27 +75,23 @@
             android:id="@+id/lightCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:onClick="checkButton"
-            android:text="@string/light_theme" />
+            android:text="@string/light_theme"/>
 
         <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/darkCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="checkButton"
-            android:text="@string/dark_theme" />
+            android:text="@string/dark_theme"/>
 
         <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/autoCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="checkButton"
-            android:text="@string/auto_theme" />
+            android:text="@string/auto_theme"/>
 
     </RadioGroup>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/startScreenButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
