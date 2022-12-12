@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.*
 import androidx.appcompat.widget.AppCompatRadioButton
 import androidx.fragment.app.Fragment
@@ -21,7 +20,6 @@ class StartScreenFragment : Fragment() {
     }
 
     private var savedMode = ThemeMode.AUTO
-    private var changeThemeMessage: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,31 +35,34 @@ class StartScreenFragment : Fragment() {
         layoutInflater, container, false
     ).also { binding ->
 
-        setCheckedId(savedMode, binding).isChecked = true
-        setDefaultNightMode(setAppMode(savedMode))
+        getCheckedId(savedMode, binding).isChecked = true
+        setDefaultNightMode(getAppMode(savedMode))
 
         binding.themeRadioGroup.setOnCheckedChangeListener { _, checkedId ->
-            if (checkedId == binding.lightCheckBox.id) {
-                savedMode = ThemeMode.LIGHT
-                changeThemeMessage = R.string.light_check_box_pushed
-            }
+            var changeThemeMessage = 0
 
-            if (checkedId == binding.darkCheckBox.id) {
-                savedMode = ThemeMode.DARK
-                changeThemeMessage = R.string.dark_check_box_pushed
+            when (checkedId) {
+                binding.lightCheckBox.id -> {
+                    savedMode = ThemeMode.LIGHT
+                    changeThemeMessage = R.string.light_check_box_pushed
+                }
+                binding.darkCheckBox.id -> {
+                    savedMode = ThemeMode.DARK
+                    changeThemeMessage = R.string.dark_check_box_pushed
+                }
+                binding.autoCheckBox.id -> {
+                    savedMode = ThemeMode.AUTO
+                    changeThemeMessage = R.string.auto_check_box_pushed
+                }
             }
-
-            if (checkedId == binding.autoCheckBox.id) {
-                savedMode = ThemeMode.AUTO
-                changeThemeMessage = R.string.auto_check_box_pushed
-            }
+            setDefaultNightMode(getAppMode(savedMode))
             Toast.makeText(context, changeThemeMessage, Toast.LENGTH_SHORT)
                 .show()
-            setDefaultNightMode(setAppMode(savedMode))
+            sharedPrefs?.edit()?.putInt(SELECTED_MODE, savedMode.ordinal)?.apply()
         }
     }.root
 
-    private fun setAppMode(savedMode: ThemeMode): Int {
+    private fun getAppMode(savedMode: ThemeMode): Int {
         return when (savedMode) {
             ThemeMode.AUTO -> MODE_NIGHT_FOLLOW_SYSTEM
             ThemeMode.LIGHT -> MODE_NIGHT_NO
@@ -69,17 +70,15 @@ class StartScreenFragment : Fragment() {
         }
     }
 
-    private fun setCheckedId(savedMode: ThemeMode, binding: StartScreenBinding): AppCompatRadioButton {
+    private fun getCheckedId(
+        savedMode: ThemeMode,
+        binding: StartScreenBinding
+    ): AppCompatRadioButton {
         return when (savedMode) {
             ThemeMode.AUTO -> binding.autoCheckBox
             ThemeMode.LIGHT -> binding.lightCheckBox
             ThemeMode.DARK -> binding.darkCheckBox
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        sharedPrefs?.edit()?.putInt(SELECTED_MODE, savedMode.ordinal)?.apply()
     }
 
     companion object {
