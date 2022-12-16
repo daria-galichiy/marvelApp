@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TrianglesView">
+        <attr name="trianglesShader" format="enum">
+            <enum name="simpleFont" value="0" />
+            <enum name="marvelCharacters" value="1" />
+        </attr>
+        <attr name="triangleSideF" format="float"/>
+        <attr name="midTriangleSideF" format="float"/>
+        <attr name="bigTriangleSideF" format="float"/>
+        <attr name="distanceF" format="float"/>
+    </declare-styleable>
+    <attr name="trianglesViewStyle" format="reference" />
+    
+    <style name="TrianglesViewStyle">
+        <item name="trianglesShader">simpleFont</item>
+    </style>
+</resources>
