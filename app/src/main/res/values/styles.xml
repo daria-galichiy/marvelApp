@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BasicButtonTheme" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:fontFamily">@font/marvel</item>
+        <item name="android:textStyle">"bold"</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textSize">@dimen/btn_text_size</item>
+        <item name="strokeColor">@color/red</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:minWidth">@dimen/start_button_width</item>
+        <item name="android:minHeight">@dimen/start_button_height</item>
+    </style>
+
+    <style name="BasicButtonTheme.Night">
+        <item name="android:textColor">@color/white</item>
+        <item name="strokeColor">@color/white</item>
+        <item name="backgroundTint">@color/red</item>
+    </style>
+
+    <style name="TextViewStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="TextViewStyle.Night">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.MyTheme.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/faster_one</item>
+        <item name="android:fontFamily">@font/faster_one</item>
+        <item name="android:textSize">@dimen/header_text_view_text_size</item>
+    </style>
+
+    <style name="TextAppearance.MyTheme.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/marvel</item>
+        <item name="android:fontFamily">@font/marvel</item>
+        <item name="android:textSize">@dimen/text_view__common_text_size</item>
+    </style>
+
+    <style name="ThemeRadioButton" parent="Base.Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="colorControlNormal">@color/blue</item>
+        <item name="colorControlActivated">@color/red</item>
+        <item name="android:fontFamily">@font/marvel</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="ThemeRadioButton.Night">
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>

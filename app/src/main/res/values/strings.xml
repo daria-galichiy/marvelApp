@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name" translatable="false">HomeworkProject</string>
     <string name="welcome_text">WELCOME TO THE</string>
-    <string name="welcome_end_text">UNIVERSE!</string>
+    <string name="welcome_end_text">UNIVERSE</string>
     <string name="select_theme_text">Choose which side you\'re on and let\'s get started!</string>
     <string name="light_theme">Light</string>
     <string name="dark_theme">Dark</string>
     <string name="auto_theme">Haven\'t decided yet</string>
     <string name="start_screen_button">Begin the journey</string>
+    <string name="light_check_box_pushed">This world isn\'t perfect, but it\'s the only one we have</string>
+    <string name="dark_check_box_pushed">We never lose our demons, we only learn to live with them</string>
+    <string name="auto_check_box_pushed">Sometimes the best thing we can do is start over</string>
 </resources>
