@@ -127,14 +127,14 @@ class TrianglesView
                 try {
                     val shader = getInt(
                         R.styleable.TrianglesView_trianglesShader,
-                        ShaderType.SimpleFont.ordinal
+                        ShaderType.Solid.ordinal
                     )
                     trianglesShader = ShaderType.values()[shader]
 
-                    triangleSideF = getFloat(R.styleable.TrianglesView_triangleSideF, DEFAULT_TRIANGLE_SIDE)
-                    midTriangleSideF = getFloat(R.styleable.TrianglesView_midTriangleSideF, DEFAULT_MID_TRIANGLE_SIDE)
-                    bigTriangleSideF = getFloat(R.styleable.TrianglesView_bigTriangleSideF, DEFAULT_BIG_TRIANGLE_SIDE)
-                    distanceF = getFloat(R.styleable.TrianglesView_distanceF, DEFAULT_DISTANCE)
+                    triangleSideF = getFloat(R.styleable.TrianglesView_smallTriangleSide, DEFAULT_TRIANGLE_SIDE)
+                    midTriangleSideF = getFloat(R.styleable.TrianglesView_middleTriangleSide, DEFAULT_MID_TRIANGLE_SIDE)
+                    bigTriangleSideF = getFloat(R.styleable.TrianglesView_bigTriangleSide, DEFAULT_BIG_TRIANGLE_SIDE)
+                    distanceF = getFloat(R.styleable.TrianglesView_auxiliaryDistance, DEFAULT_DISTANCE)
 
                     triangleSide = context.toDp(triangleSideF)
                     midTriangleSide = context.toDp(midTriangleSideF)
@@ -191,7 +191,7 @@ class TrianglesView
         canvas.translate(0F, 2 * distance)
 
         when (trianglesShader) {
-            ShaderType.SimpleFont -> {
+            ShaderType.Solid -> {
                 canvas.drawPath(path1, paintFilledShaderBrush)
                 canvas.translate(0.5F * triangleSide, -distance)
 
@@ -258,12 +258,6 @@ class TrianglesView
         setShaderType(state.shaderType)
     }
 
-    @Parcelize
-    class SavedState(
-        val shaderType: ShaderType,
-        @IgnoredOnParcel val source: Parcelable? = null
-    ) : BaseSavedState(source)
-
     private fun Context.toDp(value: Float): Float {
         return resources.displayMetrics.density * value
     }
@@ -317,4 +311,10 @@ class TrianglesView
         path.close()
         return path
     }
+
+    @Parcelize
+    class SavedState(
+        val shaderType: ShaderType,
+        @IgnoredOnParcel val source: Parcelable? = null
+    ) : BaseSavedState(source)
 }

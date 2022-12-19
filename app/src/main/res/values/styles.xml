@@ -50,9 +50,9 @@
     </style>
 
     <style name="CustomTrianglesViewStyle" parent="TrianglesViewStyle">
-        <item name="triangleSideF">70</item>
-        <item name="midTriangleSideF">130</item>
-        <item name="bigTriangleSideF">180</item>
-        <item name="distanceF">10</item>
+        <item name="smallTriangleSide">70</item>
+        <item name="middleTriangleSide">130</item>
+        <item name="bigTriangleSide">180</item>
+        <item name="auxiliaryDistance">10</item>
     </style>
 </resources>
