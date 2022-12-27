@@ -24,6 +24,7 @@
     <style name="Extended.GeneralAttributes.Theme.HomeworkProject" parent="Extended.Theme.HomeworkProject">
         <item name="textAppearanceHeadline3">@style/TextAppearance.MyTheme.Headline3</item>
         <item name="textAppearanceBody1">@style/TextAppearance.MyTheme.Body1</item>
+        <item name="trianglesViewStyle">@style/CustomTrianglesViewStyle</item>
     </style>
 
     <style name="Theme.HomeworkProject" parent="Extended.GeneralAttributes.Theme.HomeworkProject"/>

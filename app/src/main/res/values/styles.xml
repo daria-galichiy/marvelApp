@@ -48,4 +48,11 @@
     <style name="ThemeRadioButton.Night">
         <item name="android:textColor">@color/white</item>
     </style>
+
+    <style name="CustomTrianglesViewStyle" parent="TrianglesViewStyle">
+        <item name="smallTriangleSide">70</item>
+        <item name="middleTriangleSide">130</item>
+        <item name="bigTriangleSide">180</item>
+        <item name="auxiliaryDistance">10</item>
+    </style>
 </resources>
