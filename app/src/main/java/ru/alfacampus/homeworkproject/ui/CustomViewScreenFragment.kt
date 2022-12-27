@@ -1,15 +1,21 @@
 package ru.alfacampus.homeworkproject.ui
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
+import androidx.core.animation.doOnEnd
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import ru.alfacampus.homeworkproject.customviews.TrianglesView
 import ru.alfacampus.homeworkproject.databinding.CustomViewScreenBinding
 import ru.alfacampus.homeworkproject.helpers.ShaderType
 
-class CustomViewScreenFragment: Fragment() {
+
+class CustomViewScreenFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -18,10 +24,43 @@ class CustomViewScreenFragment: Fragment() {
     ) = CustomViewScreenBinding.inflate(
         layoutInflater, container, false
     ).also { binding ->
+
+        val animator1 = ObjectAnimator.ofFloat(binding.trianglesView, View.ALPHA, 0f, 1f).apply {
+            duration = 1500
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+        val animator2 = ObjectAnimator.ofFloat(binding.trianglesView, View.SCALE_X, 1f, 3f).apply {
+            duration = 800
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+        val animator3 = ObjectAnimator.ofFloat(binding.trianglesView, View.SCALE_Y, 1f, 3f).apply {
+            duration = 800
+            interpolator = AccelerateDecelerateInterpolator()
+            doOnEnd {
+                val direction = CustomViewScreenFragmentDirections.toRecyclerViewScreenFragment()
+                findNavController().navigate(direction)
+            }
+        }
+        val animator4 = ObjectAnimator.ofFloat(binding.trianglesView, View.SCALE_X, 5f, 1f).apply {
+            duration = 1000
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+        val animator5 = ObjectAnimator.ofFloat(binding.trianglesView, View.SCALE_Y, 5f, 1f).apply {
+            duration = 1000
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+
+        val animatorSet = AnimatorSet()
+        val animatorSet2 = AnimatorSet()
+
+        animatorSet.play(animator4).with(animator5)
+        animatorSet.start()
+
         binding.trianglesView.setOnClickListener {
             (it as TrianglesView).setShaderType(ShaderType.MarvelCharacters)
-            val direction = CustomViewScreenFragmentDirections.toRecyclerViewScreenFragment()
-            findNavController().navigate(direction)
+
+            animatorSet2.play(animator3).with(animator2).after(animator1)
+            animatorSet2.start()
         }
     }.root
 }
