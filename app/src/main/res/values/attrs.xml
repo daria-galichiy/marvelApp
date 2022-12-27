@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="customScreenBackgroundColor" format="color"/>
+    <attr name="customRestrictorBackgroundColor" format="color"/>
+    <attr name="characterCardBackgroundColor" format="color"/>
+    <attr name="characterCardTextColor" format="color"/>
 </resources>

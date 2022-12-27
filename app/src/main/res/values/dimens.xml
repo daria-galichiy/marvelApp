@@ -6,6 +6,15 @@
     <dimen name="start_button_width">256dp</dimen>
     <dimen name="start_button_height">64dp</dimen>
     <dimen name="btn_text_size">20sp</dimen>
-    <dimen name="text_view__common_text_size">16sp</dimen>
+    <dimen name="text_view_common_text_size">16sp</dimen>
+    <dimen name="text_view_middle_text_size">26sp</dimen>
     <dimen name="header_text_view_text_size">32sp</dimen>
+    <dimen name="middle_header_text_view_text_size">28sp</dimen>
+    <dimen name="character_avatar_width">256dp</dimen>
+    <dimen name="character_avatar_height">275dp</dimen>
+    <dimen name="character_bottom_background">128dp</dimen>
+    <dimen name="search_btn_size">48dp</dimen>
+    <dimen name="restrictor_height">5dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="icon_button_min_size">40dp</dimen>
 </resources>

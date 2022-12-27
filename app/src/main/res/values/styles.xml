@@ -32,10 +32,24 @@
         <item name="android:textSize">@dimen/header_text_view_text_size</item>
     </style>
 
+    <style name="TextAppearance.MyTheme.Headline4" parent="TextAppearance.MyTheme.Headline3">
+        <item name="fontFamily">@font/marvel</item>
+        <item name="android:fontFamily">@font/marvel</item>
+        <item name="android:textSize">@dimen/middle_header_text_view_text_size</item>
+    </style>
+
+    <style name="TextAppearance.MyTheme.Headline5" parent="TextAppearance.MyTheme.Headline4">
+        <item name="android:textSize">@dimen/header_text_view_text_size</item>
+    </style>
+
     <style name="TextAppearance.MyTheme.Body1" parent="TextAppearance.MaterialComponents.Body1">
         <item name="fontFamily">@font/marvel</item>
         <item name="android:fontFamily">@font/marvel</item>
-        <item name="android:textSize">@dimen/text_view__common_text_size</item>
+        <item name="android:textSize">@dimen/text_view_middle_text_size</item>
+    </style>
+
+    <style name="TextAppearance.MyTheme.Body2" parent="TextAppearance.MyTheme.Body1">
+        <item name="android:textSize">@dimen/text_view_common_text_size</item>
     </style>
 
     <style name="ThemeRadioButton" parent="Base.Widget.AppCompat.CompoundButton.RadioButton">
@@ -47,6 +61,22 @@
 
     <style name="ThemeRadioButton.Night">
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">@color/grey</item>
+        <item name="tint">@color/white</item>
+    </style>
+
+    <style name="FloatingActionButton.Night" parent="FloatingActionButton">
+        <item name="backgroundTint">@color/light_grey</item>
+    </style>
+
+    <style name="ImageButton" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">@drawable/ic_options_24dp</item>
+        <item name="android:backgroundTint">@color/red</item>
+        <item name="android:minWidth">@dimen/icon_button_min_size</item>
+        <item name="android:minHeight">@dimen/icon_button_min_size</item>
     </style>
 
     <style name="CustomTrianglesViewStyle" parent="TrianglesViewStyle">

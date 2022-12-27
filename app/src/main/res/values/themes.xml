@@ -19,12 +19,20 @@
         <item name="android:textViewStyle">@style/TextViewStyle</item>
         <item name="radioButtonStyle">@style/ThemeRadioButton</item>
         <item name="customScreenBackgroundColor">@color/matte_white</item>
+        <item name="characterCardBackgroundColor">@color/black</item>
+        <item name="floatingActionButtonStyle">@style/FloatingActionButton</item>
     </style>
 
     <style name="Extended.GeneralAttributes.Theme.HomeworkProject" parent="Extended.Theme.HomeworkProject">
         <item name="textAppearanceHeadline3">@style/TextAppearance.MyTheme.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.MyTheme.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.MyTheme.Headline5</item>
         <item name="textAppearanceBody1">@style/TextAppearance.MyTheme.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.MyTheme.Body2</item>
         <item name="trianglesViewStyle">@style/CustomTrianglesViewStyle</item>
+        <item name="customRestrictorBackgroundColor">@color/red</item>
+        <item name="characterCardTextColor">@color/white</item>
+        <item name="imageButtonStyle">@style/ImageButton</item>
     </style>
 
     <style name="Theme.HomeworkProject" parent="Extended.GeneralAttributes.Theme.HomeworkProject"/>

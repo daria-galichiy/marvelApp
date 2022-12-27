@@ -10,4 +10,13 @@
     <string name="light_check_box_pushed">This world isn\'t perfect, but it\'s the only one we have</string>
     <string name="dark_check_box_pushed">We never lose our demons, we only learn to live with them</string>
     <string name="auto_check_box_pushed">Sometimes the best thing we can do is start over</string>
+    <string name="character_avatar_description">Character avatar</string>
+    <string name="character_name_description">Character name</string>
+    <string name="character_description">Character description</string>
+    <string name="search_character">SEARCH</string>
+    <string name="search_button">Search button</string>
+    <string name="characters_list_title">MARVEL CHARACTERS LIST</string>
+    <string name="remove">Remove</string>
+    <string name="menu">Menu</string>
+    <string name="add_character">Add a character</string>
 </resources>

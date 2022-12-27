@@ -17,5 +17,13 @@
     <fragment
         android:id="@+id/customViewScreenFragment"
         android:name="ru.alfacampus.homeworkproject.ui.CustomViewScreenFragment"
-        android:label="CustomViewScreenFragment" />
+        android:label="CustomViewScreenFragment" >
+        <action
+            android:id="@+id/to_recyclerViewScreenFragment"
+            app:destination="@id/recyclerViewScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recyclerViewScreenFragment"
+        android:name="ru.alfacampus.homeworkproject.ui.RecyclerViewScreenFragment"
+        android:label="RecyclerViewScreenFragment" />
 </navigation>

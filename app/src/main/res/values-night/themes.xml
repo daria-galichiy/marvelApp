@@ -19,6 +19,8 @@
         <item name="android:textViewStyle">@style/TextViewStyle.Night</item>
         <item name="radioButtonStyle">@style/ThemeRadioButton.Night</item>
         <item name="customScreenBackgroundColor">@color/grey</item>
+        <item name="characterCardBackgroundColor">@color/light_black</item>
+        <item name="floatingActionButtonStyle">@style/FloatingActionButton.Night</item>
     </style>
 
 </resources>

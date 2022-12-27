@@ -10,4 +10,13 @@
     <string name="light_check_box_pushed">Этот мир несовершенен, но он единственный, который у нас есть</string>
     <string name="dark_check_box_pushed">Мы никогда не теряем наших демонов /nМы только учимся жить с ними</string>
     <string name="auto_check_box_pushed">Иногда лучшее, что мы можем сделать, - это начать все сначала</string>
+    <string name="character_avatar_description">Аватар персонажа</string>
+    <string name="character_name_description">Имя персонажа</string>
+    <string name="character_description">Краткое описание персонажа</string>
+    <string name="search_character">ПОИСК</string>
+    <string name="search_button">Кнопка поиска</string>
+    <string name="characters_list_title">СПИСОК ПЕРСОНАЖЕЙ MARVEL</string>
+    <string name="remove">Удалить</string>
+    <string name="menu">Меню</string>
+    <string name="add_character">Добавить персонажа</string>
 </resources>

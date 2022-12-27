@@ -1,12 +1,10 @@
 package ru.alfacampus.homeworkproject.ui
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import ru.alfacampus.homeworkproject.R
+import androidx.navigation.fragment.findNavController
 import ru.alfacampus.homeworkproject.customviews.TrianglesView
 import ru.alfacampus.homeworkproject.databinding.CustomViewScreenBinding
 import ru.alfacampus.homeworkproject.helpers.ShaderType
@@ -22,6 +20,8 @@ class CustomViewScreenFragment: Fragment() {
     ).also { binding ->
         binding.trianglesView.setOnClickListener {
             (it as TrianglesView).setShaderType(ShaderType.MarvelCharacters)
+            val direction = CustomViewScreenFragmentDirections.toRecyclerViewScreenFragment()
+            findNavController().navigate(direction)
         }
     }.root
 }
