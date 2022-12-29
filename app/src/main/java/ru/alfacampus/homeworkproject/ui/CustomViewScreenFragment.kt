@@ -26,15 +26,15 @@ class CustomViewScreenFragment : Fragment() {
     ).also { binding ->
 
         val animator1 = ObjectAnimator.ofFloat(binding.trianglesView, View.ALPHA, 0f, 1f).apply {
-            duration = 1500
+            duration = LONG_DURATION
             interpolator = AccelerateDecelerateInterpolator()
         }
         val animator2 = ObjectAnimator.ofFloat(binding.trianglesView, View.SCALE_X, 1f, 3f).apply {
-            duration = 800
+            duration = SHORT_DURATION
             interpolator = AccelerateDecelerateInterpolator()
         }
         val animator3 = ObjectAnimator.ofFloat(binding.trianglesView, View.SCALE_Y, 1f, 3f).apply {
-            duration = 800
+            duration = SHORT_DURATION
             interpolator = AccelerateDecelerateInterpolator()
             doOnEnd {
                 val direction = CustomViewScreenFragmentDirections.toRecyclerViewScreenFragment()
@@ -42,11 +42,11 @@ class CustomViewScreenFragment : Fragment() {
             }
         }
         val animator4 = ObjectAnimator.ofFloat(binding.trianglesView, View.SCALE_X, 5f, 1f).apply {
-            duration = 1000
+            duration = MIDDLE_DURATION
             interpolator = AccelerateDecelerateInterpolator()
         }
         val animator5 = ObjectAnimator.ofFloat(binding.trianglesView, View.SCALE_Y, 5f, 1f).apply {
-            duration = 1000
+            duration = MIDDLE_DURATION
             interpolator = AccelerateDecelerateInterpolator()
         }
 
@@ -63,4 +63,11 @@ class CustomViewScreenFragment : Fragment() {
             animatorSet2.start()
         }
     }.root
+
+    companion object {
+        const val SHORT_DURATION: Long = 800
+        const val MIDDLE_DURATION: Long = 1000
+        const val LONG_DURATION: Long = 1500
+
+    }
 }
