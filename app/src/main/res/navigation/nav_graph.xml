@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/startScreenFragment"
-        android:name="ru.alfacampus.homeworkproject.ui.StartScreenFragment"
+        android:name="ru.alfacampus.homeworkproject.presentation.ui.StartScreenFragment"
         android:label="start_screen"
         tools:layout="@layout/start_screen" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/customViewScreenFragment"
-        android:name="ru.alfacampus.homeworkproject.ui.CustomViewScreenFragment"
+        android:name="ru.alfacampus.homeworkproject.presentation.ui.CustomViewScreenFragment"
         android:label="CustomViewScreenFragment" >
         <action
             android:id="@+id/to_recyclerViewScreenFragment"
@@ -24,6 +24,6 @@
     </fragment>
     <fragment
         android:id="@+id/recyclerViewScreenFragment"
-        android:name="ru.alfacampus.homeworkproject.ui.RecyclerViewScreenFragment"
+        android:name="ru.alfacampus.homeworkproject.presentation.ui.RecyclerViewScreenFragment"
         android:label="RecyclerViewScreenFragment" />
 </navigation>

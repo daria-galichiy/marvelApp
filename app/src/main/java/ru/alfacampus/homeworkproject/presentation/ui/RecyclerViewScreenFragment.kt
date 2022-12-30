@@ -1,4 +1,4 @@
-package ru.alfacampus.homeworkproject.ui
+package ru.alfacampus.homeworkproject.presentation.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
-import ru.alfacampus.homeworkproject.adapter.CharactersAdapter
+import ru.alfacampus.homeworkproject.presentation.adapter.CharactersAdapter
 import ru.alfacampus.homeworkproject.databinding.ListOfCharactersBinding
-import ru.alfacampus.homeworkproject.viewModel.CharactersViewModel
+import ru.alfacampus.homeworkproject.presentation.viewModel.CharactersViewModel
 
 
 class RecyclerViewScreenFragment : Fragment() {

@@ -1,8 +1,8 @@
 package ru.alfacampus.homeworkproject.data.impl
 
 import androidx.lifecycle.MutableLiveData
-import ru.alfacampus.homeworkproject.data.CharactersRepository
-import ru.alfacampus.homeworkproject.dto.CharacterMarvel
+import ru.alfacampus.homeworkproject.data.repository.CharactersRepository
+import ru.alfacampus.homeworkproject.data.dto.CharacterMarvel
 
 class InMemoryCharactersRepository : CharactersRepository {
     private var nextId = GENERATED_POSTS_AMOUNT.toLong()

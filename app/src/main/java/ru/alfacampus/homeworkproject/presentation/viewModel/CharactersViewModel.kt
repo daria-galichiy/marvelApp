@@ -1,11 +1,11 @@
-package ru.alfacampus.homeworkproject.viewModel
+package ru.alfacampus.homeworkproject.presentation.viewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import ru.alfacampus.homeworkproject.adapter.CharacterInteractionListener
-import ru.alfacampus.homeworkproject.data.CharactersRepository
+import ru.alfacampus.homeworkproject.presentation.adapter.CharacterInteractionListener
+import ru.alfacampus.homeworkproject.data.repository.CharactersRepository
 import ru.alfacampus.homeworkproject.data.impl.InMemoryCharactersRepository
-import ru.alfacampus.homeworkproject.dto.CharacterMarvel
+import ru.alfacampus.homeworkproject.data.dto.CharacterMarvel
 
 
 class CharactersViewModel(

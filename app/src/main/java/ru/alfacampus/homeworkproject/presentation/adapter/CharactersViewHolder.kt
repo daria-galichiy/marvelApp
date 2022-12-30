@@ -1,11 +1,10 @@
-package ru.alfacampus.homeworkproject.adapter
+package ru.alfacampus.homeworkproject.presentation.adapter
 
-import android.graphics.drawable.Drawable
 import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import ru.alfacampus.homeworkproject.R
 import ru.alfacampus.homeworkproject.databinding.ItemCharacterBinding
-import ru.alfacampus.homeworkproject.dto.CharacterMarvel
+import ru.alfacampus.homeworkproject.data.dto.CharacterMarvel
 
 
 class CharactersViewHolder(

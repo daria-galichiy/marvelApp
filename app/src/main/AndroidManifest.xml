@@ -14,7 +14,7 @@
         android:theme="@style/Theme.HomeworkProject"
         tools:targetApi="31">
         <activity
-            android:name=".ui.MainActivity"
+            android:name="ru.alfacampus.homeworkproject.presentation.ui.MainActivity"
             android:exported="true"
             android:screenOrientation="fullSensor">
             <intent-filter>

@@ -1,11 +1,11 @@
-package ru.alfacampus.homeworkproject.adapter
+package ru.alfacampus.homeworkproject.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import ru.alfacampus.homeworkproject.databinding.ItemCharacterBinding
-import ru.alfacampus.homeworkproject.dto.CharacterMarvel
+import ru.alfacampus.homeworkproject.data.dto.CharacterMarvel
 
 
 class CharactersAdapter(

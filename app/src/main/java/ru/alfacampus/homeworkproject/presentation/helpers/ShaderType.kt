@@ -1,4 +1,4 @@
-package ru.alfacampus.homeworkproject.helpers
+package ru.alfacampus.homeworkproject.presentation.helpers
 
 enum class ShaderType {
     Solid,

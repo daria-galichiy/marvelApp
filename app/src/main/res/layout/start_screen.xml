@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/customScreenBackgroundColor"
-    tools:context=".ui.StartScreenFragment">
+    tools:context=".presentation.ui.StartScreenFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/startInfoTextView"

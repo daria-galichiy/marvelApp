@@ -1,4 +1,4 @@
-package ru.alfacampus.homeworkproject.customviews
+package ru.alfacampus.homeworkproject.presentation.customviews
 
 import android.content.Context
 import android.graphics.*
@@ -9,7 +9,7 @@ import android.view.View
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 import ru.alfacampus.homeworkproject.R
-import ru.alfacampus.homeworkproject.helpers.ShaderType
+import ru.alfacampus.homeworkproject.presentation.helpers.ShaderType
 import kotlin.math.pow
 import kotlin.math.sqrt
 

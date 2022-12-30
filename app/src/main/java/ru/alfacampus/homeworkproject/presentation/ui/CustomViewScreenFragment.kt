@@ -1,4 +1,4 @@
-package ru.alfacampus.homeworkproject.ui
+package ru.alfacampus.homeworkproject.presentation.ui
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -10,9 +10,9 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.core.animation.doOnEnd
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import ru.alfacampus.homeworkproject.customviews.TrianglesView
+import ru.alfacampus.homeworkproject.presentation.customviews.TrianglesView
 import ru.alfacampus.homeworkproject.databinding.CustomViewScreenBinding
-import ru.alfacampus.homeworkproject.helpers.ShaderType
+import ru.alfacampus.homeworkproject.presentation.helpers.ShaderType
 
 
 class CustomViewScreenFragment : Fragment() {

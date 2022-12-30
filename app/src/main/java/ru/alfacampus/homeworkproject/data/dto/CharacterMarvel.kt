@@ -1,4 +1,4 @@
-package ru.alfacampus.homeworkproject.dto
+package ru.alfacampus.homeworkproject.data.dto
 
 import kotlinx.serialization.Serializable
 

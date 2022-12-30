@@ -1,4 +1,4 @@
-package ru.alfacampus.homeworkproject.ui
+package ru.alfacampus.homeworkproject.presentation.ui
 
 import android.content.Context
 import android.os.Bundle
@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import ru.alfacampus.homeworkproject.R
 import ru.alfacampus.homeworkproject.databinding.StartScreenBinding
-import ru.alfacampus.homeworkproject.helpers.ThemeMode
+import ru.alfacampus.homeworkproject.presentation.helpers.ThemeMode
 
 
 class StartScreenFragment : Fragment() {
