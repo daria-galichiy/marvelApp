@@ -1,105 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/startScreenLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/customScreenBackgroundColor"
-    tools:context=".presentation.ui.StartScreenFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/startInfoTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_spacing"
-        android:layout_marginTop="@dimen/top_spacing"
-        android:layout_marginEnd="@dimen/common_spacing"
-        android:ellipsize="end"
-        android:gravity="center"
-        android:text="@string/welcome_text"
-        android:textAppearance="?attr/textAppearanceHeadline3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/startScreenLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/customScreenBackgroundColor"
+        tools:context=".presentation.ui.StartScreenFragment">
 
-    <ImageView
-        android:id="@+id/marvelLogo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/common_spacing"
-        android:layout_marginBottom="@dimen/common_spacing"
-        android:adjustViewBounds="true"
-        android:src="@drawable/ic_marvel_logo"
-        app:layout_constraintBottom_toTopOf="@+id/endInfoTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/startInfoTextView" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/startInfoTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_spacing"
+            android:layout_marginTop="@dimen/top_spacing"
+            android:layout_marginEnd="@dimen/common_spacing"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:text="@string/welcome_text"
+            android:textAppearance="?attr/textAppearanceHeadline3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/endInfoTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/welcome_end_text"
-        android:textAppearance="?attr/textAppearanceHeadline3"
-        app:layout_constraintBottom_toTopOf="@+id/selectThemeTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/marvelLogo" />
+        <ImageView
+            android:id="@+id/marvelLogo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/common_spacing"
+            android:layout_marginBottom="@dimen/common_spacing"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_marvel_logo"
+            app:layout_constraintBottom_toTopOf="@+id/endInfoTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/startInfoTextView" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/selectThemeTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_spacing"
-        android:layout_marginEnd="@dimen/common_spacing"
-        android:layout_marginBottom="@dimen/common_spacing"
-        android:gravity="center"
-        android:text="@string/select_theme_text"
-        android:textAppearance="?attr/textAppearanceBody2"
-        app:layout_constraintBottom_toTopOf="@+id/themeRadioGroup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/endInfoTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/welcome_end_text"
+            android:textAppearance="?attr/textAppearanceHeadline3"
+            app:layout_constraintBottom_toTopOf="@+id/selectThemeTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/marvelLogo" />
 
-    <RadioGroup
-        android:id="@+id/themeRadioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/common_spacing"
-        app:layout_constraintBottom_toTopOf="@+id/startScreenButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/selectThemeTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_spacing"
+            android:layout_marginEnd="@dimen/common_spacing"
+            android:layout_marginBottom="@dimen/common_spacing"
+            android:gravity="center"
+            android:text="@string/select_theme_text"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintBottom_toTopOf="@+id/themeRadioGroup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatRadioButton
-            android:id="@+id/lightCheckBox"
+        <RadioGroup
+            android:id="@+id/themeRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/light_theme" />
+            android:layout_marginBottom="@dimen/common_spacing"
+            app:layout_constraintBottom_toTopOf="@+id/startScreenButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-        <androidx.appcompat.widget.AppCompatRadioButton
-            android:id="@+id/darkCheckBox"
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/lightCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/light_theme" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/darkCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dark_theme" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/autoCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/auto_theme" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/startScreenButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dark_theme" />
+            android:layout_marginBottom="@dimen/top_spacing"
+            android:text="@string/start_screen_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatRadioButton
-            android:id="@+id/autoCheckBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/auto_theme" />
-
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/startScreenButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/top_spacing"
-        android:text="@string/start_screen_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

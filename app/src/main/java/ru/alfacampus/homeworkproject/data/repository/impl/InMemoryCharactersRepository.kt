@@ -1,8 +1,8 @@
-package ru.alfacampus.homeworkproject.data.impl
+package ru.alfacampus.homeworkproject.data.repository.impl
 
 import androidx.lifecycle.MutableLiveData
 import ru.alfacampus.homeworkproject.data.repository.CharactersRepository
-import ru.alfacampus.homeworkproject.data.dto.CharacterMarvel
+import ru.alfacampus.homeworkproject.data.dto.temporarystub.CharacterMarvel
 
 class InMemoryCharactersRepository : CharactersRepository {
     private var nextId = GENERATED_POSTS_AMOUNT.toLong()
@@ -21,7 +21,7 @@ class InMemoryCharactersRepository : CharactersRepository {
                 id = index + 1L,
                 name = "IRON MAN " + (index+1),
                 description = "Some description " + (index+1),
-                thumbnail = "iron_man_sample.jpg"
+                simpleImage = "iron_man_sample.jpg"
             )
         }
     )
@@ -40,7 +40,7 @@ class InMemoryCharactersRepository : CharactersRepository {
             id = nextId,
             name = "IRON MAN $nextId",
             description = "Some description $nextId",
-            thumbnail = "iron_man_sample.jpg"
+            simpleImage = "iron_man_sample.jpg"
         )) + characters
     }
 

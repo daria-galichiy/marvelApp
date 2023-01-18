@@ -1,7 +1,7 @@
 package ru.alfacampus.homeworkproject.data.repository
 
 import androidx.lifecycle.LiveData
-import ru.alfacampus.homeworkproject.data.dto.CharacterMarvel
+import ru.alfacampus.homeworkproject.data.dto.temporarystub.CharacterMarvel
 
 interface CharactersRepository {
     val data: LiveData<List<CharacterMarvel>>

@@ -4,7 +4,7 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import ru.alfacampus.homeworkproject.R
 import ru.alfacampus.homeworkproject.databinding.ItemCharacterBinding
-import ru.alfacampus.homeworkproject.data.dto.CharacterMarvel
+import ru.alfacampus.homeworkproject.data.dto.temporarystub.CharacterMarvel
 
 
 class CharactersViewHolder(

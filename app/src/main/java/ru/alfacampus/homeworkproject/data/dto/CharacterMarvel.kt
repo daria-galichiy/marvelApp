@@ -1,11 +1,30 @@
 package ru.alfacampus.homeworkproject.data.dto
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class CharacterMarvel(
-    val id: Long,
+    @SerialName("id")
+    val id: Int,
+    @SerialName("name")
     val name: String,
-    val description: String? = "",
-    val thumbnail: String
+    @SerialName("description")
+    val description: String,
+    @SerialName("modified")
+    val modified: String,
+    @SerialName("thumbnail")
+    val thumbnail: Thumbnail,
+    @SerialName("resourceURI")
+    val resourceURI: String,
+    @SerialName("comics")
+    val comics: Comics,
+    @SerialName("series")
+    val series: Series,
+    @SerialName("stories")
+    val stories: Stories,
+    @SerialName("events")
+    val events: Events,
+    @SerialName("urls")
+    val urls: List<Url>
 )

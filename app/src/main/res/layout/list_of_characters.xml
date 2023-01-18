@@ -1,76 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/customScreenBackgroundColor">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/charactersListTitle"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/common_spacing"
-            android:layout_marginTop="@dimen/top_spacing"
-            android:text="@string/characters_list_title"
-            android:textAppearance="?attr/textAppearanceHeadline5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="?attr/customScreenBackgroundColor">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/charactersRecyclerView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layoutAnimation="@anim/recycler_layout_anim"
-            android:orientation="horizontal"
-            android:paddingEnd="@dimen/common_spacing"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/charactersListTitle"
-            tools:itemCount="5"
-            tools:listitem="@layout/item_character" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/charactersListTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_spacing"
+                android:layout_marginTop="@dimen/top_spacing"
+                android:text="@string/characters_list_title"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/searchBtn"
-            android:layout_width="@dimen/search_btn_size"
-            android:layout_height="@dimen/search_btn_size"
-            android:layout_marginStart="@dimen/common_spacing"
-            android:layout_marginTop="@dimen/common_spacing"
-            android:background="@android:color/transparent"
-            android:checkable="true"
-            android:contentDescription="@string/search_button"
-            app:icon="@drawable/ic_search_24dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/charactersRecyclerView" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/charactersRecyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layoutAnimation="@anim/recycler_layout_anim"
+                android:orientation="horizontal"
+                android:paddingEnd="@dimen/common_spacing"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/charactersListTitle"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_character" />
 
-        <EditText
-            android:id="@+id/searchInputText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/top_spacing"
-            android:hint="@string/search_character"
-            app:layout_constraintBottom_toBottomOf="@+id/searchBtn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/searchBtn"
-            app:layout_constraintTop_toTopOf="@+id/searchBtn" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/searchBtn"
+                android:layout_width="@dimen/search_btn_size"
+                android:layout_height="@dimen/search_btn_size"
+                android:layout_marginStart="@dimen/common_spacing"
+                android:layout_marginTop="@dimen/common_spacing"
+                android:background="@android:color/transparent"
+                android:checkable="true"
+                android:contentDescription="@string/search_button"
+                app:icon="@drawable/ic_search_24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/charactersRecyclerView" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/fab_margin"
-            android:contentDescription="@string/add_character"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_add_24dp" />
+            <EditText
+                android:id="@+id/searchInputText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/top_spacing"
+                android:hint="@string/search_character"
+                app:layout_constraintBottom_toBottomOf="@+id/searchBtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/searchBtn"
+                app:layout_constraintTop_toTopOf="@+id/searchBtn" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:contentDescription="@string/add_character"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_add_24dp" />
 
-</androidx.core.widget.NestedScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

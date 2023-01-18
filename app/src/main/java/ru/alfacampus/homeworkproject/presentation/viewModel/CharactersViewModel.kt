@@ -4,8 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import ru.alfacampus.homeworkproject.presentation.adapter.CharacterInteractionListener
 import ru.alfacampus.homeworkproject.data.repository.CharactersRepository
-import ru.alfacampus.homeworkproject.data.impl.InMemoryCharactersRepository
-import ru.alfacampus.homeworkproject.data.dto.CharacterMarvel
+import ru.alfacampus.homeworkproject.data.repository.impl.InMemoryCharactersRepository
+import ru.alfacampus.homeworkproject.data.dto.temporarystub.CharacterMarvel
 
 
 class CharactersViewModel(
@@ -21,7 +21,7 @@ class CharactersViewModel(
         val character = CharacterMarvel(
             id = CharactersRepository.NEW_CHARACTER_ID,
             name = "",
-            thumbnail = ""
+            simpleImage = ""
         )
         repository.save(character)
     }
