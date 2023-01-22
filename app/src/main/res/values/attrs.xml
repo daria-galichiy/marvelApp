@@ -4,4 +4,5 @@
     <attr name="customRestrictorBackgroundColor" format="color"/>
     <attr name="characterCardBackgroundColor" format="color"/>
     <attr name="characterCardTextColor" format="color"/>
+    <attr name="searchFieldTextColor" format="color"/>
 </resources>

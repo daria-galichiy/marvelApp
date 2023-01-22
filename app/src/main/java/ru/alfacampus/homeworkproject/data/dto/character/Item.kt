@@ -1,14 +1,12 @@
-package ru.alfacampus.homeworkproject.data.dto
+package ru.alfacampus.homeworkproject.data.dto.character
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ItemXXX(
+data class Item(
     @SerialName("resourceURI")
     val resourceURI: String,
     @SerialName("name")
-    val name: String,
-    @SerialName("type")
-    val type: String
+    val name: String
 )

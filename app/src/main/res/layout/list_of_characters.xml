@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:paddingBottom="@dimen/bottom_nested_scrollview_padding">
 
-        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/customScreenBackgroundColor">
@@ -31,6 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layoutAnimation="@anim/recycler_layout_anim"
                 android:orientation="horizontal"
+                android:paddingStart="@dimen/common_spacing"
                 android:paddingEnd="@dimen/common_spacing"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -39,6 +42,16 @@
                 tools:itemCount="5"
                 tools:listitem="@layout/item_character" />
 
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="@dimen/progress_bar_size"
+                android:layout_height="@dimen/progress_bar_size"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/searchBtn"
                 android:layout_width="@dimen/search_btn_size"
@@ -46,11 +59,12 @@
                 android:layout_marginStart="@dimen/common_spacing"
                 android:layout_marginTop="@dimen/common_spacing"
                 android:background="@android:color/transparent"
-                android:checkable="true"
+                android:checkable="false"
                 android:contentDescription="@string/search_button"
                 app:icon="@drawable/ic_search_24dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/charactersRecyclerView" />
+                app:layout_constraintTop_toBottomOf="@+id/charactersRecyclerView"
+                tools:ignore="RedundantDescriptionCheck" />
 
             <EditText
                 android:id="@+id/searchInputText"
@@ -58,10 +72,51 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/top_spacing"
                 android:hint="@string/search_character"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColorHint="?attr/searchFieldTextColor"
                 app:layout_constraintBottom_toBottomOf="@+id/searchBtn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/searchBtn"
                 app:layout_constraintTop_toTopOf="@+id/searchBtn" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/searchCharactersRecyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layoutAnimation="@anim/recycler_layout_anim"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/common_spacing"
+                android:paddingEnd="@dimen/common_spacing"
+                android:paddingBottom="@dimen/search_btn_size"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchInputText"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_character" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/noSearchResultsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/recyclerview_background_height"
+                android:gravity="center"
+                android:text="@string/no_characters_found"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchInputText" />
+
+            <ProgressBar
+                android:id="@+id/searchProgressBar"
+                android:layout_width="@dimen/little_progress_bar_size"
+                android:layout_height="@dimen/little_progress_bar_size"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchInputText" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab"
@@ -73,7 +128,26 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/ic_add_24dp" />
 
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/charactersGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:constraint_referenced_ids="charactersRecyclerView,
+                searchBtn,searchInputText,fab,searchCharactersRecyclerView" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/copyright_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="TextContrastCheck"
+                tools:text="@string/copyright_text" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
+
 </layout>

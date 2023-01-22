@@ -16,7 +16,21 @@
     <string name="search_character">SEARCH</string>
     <string name="search_button">Search button</string>
     <string name="characters_list_title">MARVEL CHARACTERS LIST</string>
-    <string name="remove">Remove</string>
+    <string name="remove">Hide</string>
+    <string name="add_to_favorites">Add to Favorites</string>
     <string name="menu">Menu</string>
     <string name="add_character">Add a character</string>
+    <string name="copyright_text" translatable="false">© MARVEL</string>
+    <string name="no_characters_found">No results found... \n \n Maybe you should try another name : )</string>
+    <string name="comics_image_description">Comics image</string>
+    <string name="comics_name_description">Comics name</string>
+    <string name="comics_text_description">Comics list</string>
+    <string name="back_button_description">Back to characters list button</string>
+    <string name="comics_text">COMICS LIST</string>
+    <string name="see_more_details_button">SEE MORE DETAILS</string>
+    <string name="see_more_details_description">SEE MORE DETAILS BUTTON</string>
+    <string name="characters_description_not_found" translatable="false">The character\'s description hasn\'t been added yet</string>
+    <string name="no_comics_found" translatable="false">No comics found...</string>
+    <string name="comics_not_found_description">No comics found message</string>
+    <string name="error_on_opening_browser">An error occurred when trying to open the browser</string>
 </resources>

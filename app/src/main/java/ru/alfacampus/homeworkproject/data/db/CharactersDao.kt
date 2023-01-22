@@ -4,10 +4,10 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import ru.alfacampus.homeworkproject.data.dto.CharacterMarvel
+import ru.alfacampus.homeworkproject.data.dto.character.CharacterMarvel
 
 interface CharactersDao {
-
+    // TODO implement queries
     @Query("SELECT * FROM characters")
     suspend fun getCharacters(): LiveData<List<CharacterMarvel>>
 

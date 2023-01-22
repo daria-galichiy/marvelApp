@@ -5,12 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import ru.alfacampus.homeworkproject.databinding.ItemCharacterBinding
-import ru.alfacampus.homeworkproject.data.dto.temporarystub.CharacterMarvel
+import ru.alfacampus.homeworkproject.data.dto.character.CharacterMarvel
 
 
 class CharactersAdapter(
     private val interactionListener: CharacterInteractionListener
 ) : ListAdapter<CharacterMarvel, CharactersViewHolder>(DiffCallback) {
+
+    private lateinit var onItemClickListener: ((CharacterMarvel) -> Unit)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -23,6 +25,11 @@ class CharactersAdapter(
     override fun onBindViewHolder(holder: CharactersViewHolder, position: Int) {
         val character = getItem(position)
         holder.bind(character)
+        holder.itemView.apply {
+            setOnClickListener {
+                onItemClickListener(character)
+            }
+        }
     }
 
     private object DiffCallback : DiffUtil.ItemCallback<CharacterMarvel>() {
@@ -32,5 +39,9 @@ class CharactersAdapter(
 
         override fun areContentsTheSame(oldItem: CharacterMarvel, newItem: CharacterMarvel): Boolean =
             oldItem == newItem
+    }
+
+    fun setOnItemClickListener(listener: (CharacterMarvel) -> Unit) {
+        onItemClickListener = listener
     }
 }

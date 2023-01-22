@@ -1,10 +1,10 @@
-package ru.alfacampus.homeworkproject.data.dto
+package ru.alfacampus.homeworkproject.data.dto.comics
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Thumbnail(
+data class Image(
     @SerialName("path")
     val path: String,
     @SerialName("extension")

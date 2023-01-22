@@ -2,9 +2,10 @@ package ru.alfacampus.homeworkproject.presentation.adapter
 
 import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import ru.alfacampus.homeworkproject.R
 import ru.alfacampus.homeworkproject.databinding.ItemCharacterBinding
-import ru.alfacampus.homeworkproject.data.dto.temporarystub.CharacterMarvel
+import ru.alfacampus.homeworkproject.data.dto.character.CharacterMarvel
 
 
 class CharactersViewHolder(
@@ -21,6 +22,10 @@ class CharactersViewHolder(
                 when (menuItem.itemId) {
                     R.id.remove -> {
                         listener.onRemoveClicked(character)
+                        true
+                    }
+                    R.id.addToFavorites -> {
+                        listener.onAddToFavoritesClicked(character)
                         true
                     }
                     else -> false
@@ -41,7 +46,13 @@ class CharactersViewHolder(
         with(binding) {
             characterName.text = character.name
             characterDescription.text = character.description
-            characterAvatar.setImageResource(R.drawable.iron_man_sample)
+            Glide.with(characterAvatar.context)
+                .load(character.thumbnail.path
+                        + "/standard_fantastic."
+                        + character.thumbnail.extension)
+                .error(R.drawable.agent_mobius_error)
+                .into(characterAvatar)
+            characterAvatar.clipToOutline = true
         }
     }
 }

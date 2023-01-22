@@ -1,10 +1,10 @@
-package ru.alfacampus.homeworkproject.data.dto
+package ru.alfacampus.homeworkproject.data.dto.character
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Comics(
+data class Events(
     @SerialName("available")
     val available: Int,
     @SerialName("collectionURI")

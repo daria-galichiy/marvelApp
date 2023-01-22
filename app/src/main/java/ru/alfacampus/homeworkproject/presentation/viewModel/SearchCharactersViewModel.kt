@@ -12,28 +12,24 @@ import ru.alfacampus.homeworkproject.presentation.adapter.CharacterInteractionLi
 import ru.alfacampus.homeworkproject.utils.Resource
 import javax.inject.Inject
 
-
 @HiltViewModel
-class MainViewModel @Inject constructor(private val repository: MarvelRepository) : ViewModel(),
-    CharacterInteractionListener {
+class SearchCharactersViewModel @Inject constructor(private val repository: MarvelRepository) :
+    ViewModel(), CharacterInteractionListener {
 
-    val charactersMarvelLiveData: MutableLiveData<Resource<CharactersResponse>> = MutableLiveData()
+    val searchCharactersLiveData: MutableLiveData<Resource<CharactersResponse>> = MutableLiveData()
 
-    init {
-        getCharacters(0, 50)
-    }
-
-    private fun getCharacters(offset: Int, limit: Int) = viewModelScope.launch {
-        charactersMarvelLiveData.postValue(Resource.Loading())
-        val response = repository.getCharacters(offset, limit)
-        if (response.isSuccessful) {
-            response.body().let { res ->
-                charactersMarvelLiveData.postValue(Resource.Success(res))
+    fun searchCharactersByNameStartsWith(nameStartsWith: String, limit: Int) =
+        viewModelScope.launch {
+            searchCharactersLiveData.postValue(Resource.Loading())
+            val response = repository.searchCharacters(nameStartsWith, limit)
+            if (response.isSuccessful) {
+                response.body().let { charactersResponse ->
+                    searchCharactersLiveData.postValue(Resource.Success(charactersResponse))
+                }
+            } else {
+                searchCharactersLiveData.postValue(Resource.Error(response.message()))
             }
-        } else {
-            charactersMarvelLiveData.postValue(Resource.Error(response.message()))
         }
-    }
 
     override fun onAddToFavoritesClicked(character: CharacterMarvel) {
         // TODO: implement adding to favorites

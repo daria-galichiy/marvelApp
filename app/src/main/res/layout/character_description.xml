@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:paddingBottom="@dimen/bottom_nested_scrollview_padding">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/customScreenBackgroundColor">
+
+            <ImageView
+                android:id="@+id/characterAvatar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/character_description_image_height"
+                android:contentDescription="@string/character_avatar_description"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/iron_man_sample" />
+
+            <ImageButton
+                android:id="@+id/backToCharactersListButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_arrow_back_24dp"
+                android:contentDescription="@string/back_button_description"
+                android:minHeight="@dimen/back_button_size"
+                app:layout_constraintBottom_toBottomOf="@id/characterAvatar"
+                app:layout_constraintStart_toStartOf="@id/characterAvatar"
+                tools:ignore="RedundantDescriptionCheck" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/characterName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_spacing"
+                android:layout_marginTop="@dimen/top_spacing"
+                android:contentDescription="@string/character_name_description"
+                android:textAppearance="?attr/textAppearanceHeadline3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/characterAvatar"
+                tools:text="IRON MAN" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/characterDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_spacing"
+                android:layout_marginTop="@dimen/common_spacing"
+                android:layout_marginEnd="@dimen/common_spacing"
+                android:contentDescription="@string/character_description"
+                android:textAppearance="?attr/textAppearanceBody1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/characterName"
+                tools:ignore="TextContrastCheck"
+                tools:text="Wounded, captured and forced to build a weapon by his enemies, billionaire industrialist" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/comicsText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_spacing"
+                android:layout_marginTop="@dimen/top_spacing"
+                android:contentDescription="@string/comics_text_description"
+                android:text="@string/comics_text"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/characterDescription" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/comicsRecyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layoutAnimation="@anim/recycler_layout_anim"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/common_spacing"
+                android:paddingEnd="@dimen/common_spacing"
+                android:paddingBottom="@dimen/search_btn_size"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/comicsText"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_comics" />
+
+            <Button
+                android:id="@+id/moreDetailsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_spacing"
+                android:layout_marginBottom="@dimen/top_spacing"
+                android:contentDescription="@string/see_more_details_description"
+                android:text="@string/see_more_details_button"
+                app:layout_constraintBottom_toTopOf="@+id/copyright_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/comicsRecyclerView"
+                tools:ignore="RedundantDescriptionCheck" />
+
+            <ProgressBar
+                android:id="@+id/comicsProgressBar"
+                android:layout_width="@dimen/little_progress_bar_size"
+                android:layout_height="@dimen/little_progress_bar_size"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@id/moreDetailsButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/comicsText" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/comicsNotFoundTextView"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/recyclerview_comics_background_height"
+                android:layout_marginEnd="@dimen/common_spacing"
+                android:contentDescription="@string/comics_not_found_description"
+                android:gravity="center"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/comicsText"
+                tools:ignore="TextContrastCheck"
+                tools:text="@string/no_comics_found" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/copyright_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="TextContrastCheck"
+                tools:text="@string/copyright_text" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

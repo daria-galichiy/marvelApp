@@ -1,4 +1,4 @@
-package ru.alfacampus.homeworkproject.data.dto
+package ru.alfacampus.homeworkproject.data.dto.character
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -27,4 +27,4 @@ data class CharacterMarvel(
     val events: Events,
     @SerialName("urls")
     val urls: List<Url>
-)
+): java.io.Serializable
