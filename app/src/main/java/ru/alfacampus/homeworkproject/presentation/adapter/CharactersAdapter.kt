@@ -4,12 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import ru.alfacampus.homeworkproject.databinding.ItemCharacterBinding
 import ru.alfacampus.homeworkproject.data.dto.character.CharacterMarvel
+import ru.alfacampus.homeworkproject.databinding.ItemCharacterBinding
 
 
 class CharactersAdapter(
-    private val interactionListener: CharacterInteractionListener
+    private val interactionListener: CharacterInteractionListener,
+    private val isFavoriteCharacter: Boolean
 ) : ListAdapter<CharacterMarvel, CharactersViewHolder>(DiffCallback) {
 
     private lateinit var onItemClickListener: ((CharacterMarvel) -> Unit)
@@ -19,12 +20,12 @@ class CharactersAdapter(
         val binding = ItemCharacterBinding.inflate(
             inflater, parent, false
         )
-        return CharactersViewHolder(binding, interactionListener)
+        return CharactersViewHolder(binding, interactionListener, parent.context)
     }
 
     override fun onBindViewHolder(holder: CharactersViewHolder, position: Int) {
         val character = getItem(position)
-        holder.bind(character)
+        holder.bind(character, isFavoriteCharacter)
         holder.itemView.apply {
             setOnClickListener {
                 onItemClickListener(character)

@@ -39,7 +39,7 @@ class RecyclerViewScreenFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = ListOfCharactersBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -47,10 +47,10 @@ class RecyclerViewScreenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        charactersAdapter = CharactersAdapter(mainViewModel)
+        charactersAdapter = CharactersAdapter(mainViewModel, false)
         binding.charactersRecyclerView.adapter = charactersAdapter
 
-        searchCharactersAdapter = CharactersAdapter(searchViewModel)
+        searchCharactersAdapter = CharactersAdapter(searchViewModel, false)
         binding.searchCharactersRecyclerView.adapter = searchCharactersAdapter
 
         charactersAdapter.setOnItemClickListener {
@@ -73,6 +73,10 @@ class RecyclerViewScreenFragment : Fragment() {
                     }
                 }
             }
+        }
+
+        binding.fab.setOnClickListener {
+            //TODO: come up with implementation or delete the fab
         }
 
         mainViewModel.charactersMarvelLiveData.observe(viewLifecycleOwner) { response ->

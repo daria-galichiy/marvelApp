@@ -33,4 +33,11 @@
     <string name="no_comics_found" translatable="false">No comics found...</string>
     <string name="comics_not_found_description">No comics found message</string>
     <string name="error_on_opening_browser">An error occurred when trying to open the browser</string>
+    <string name="character_was_added_to_favorites">The character was added to Favorites</string>
+    <string name="favorite_characters_list_title">FAVORITE CHARACTERS</string>
+    <string name="no_favorite_characters_found">There are no characters in Favorites yet</string>
+    <string name="character_was_deleted">The character was deleted from Favorites</string>
+    <string name="cancel_deletion">Cancel deletion</string>
+    <string name="main_page_title">Characters</string>
+    <string name="favorites_page_title">Favorites</string>
 </resources>

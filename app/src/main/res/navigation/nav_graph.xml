@@ -38,4 +38,12 @@
             android:name="characterMarvel"
             app:argType="ru.alfacampus.homeworkproject.data.dto.character.CharacterMarvel" />
     </fragment>
+    <fragment
+        android:id="@+id/favoriteCharactersFragment"
+        android:name="ru.alfacampus.homeworkproject.presentation.ui.FavoriteCharactersFragment"
+        android:label="FavoriteCharactersFragment" >
+        <action
+            android:id="@+id/to_characterDescriptionFragment"
+            app:destination="@id/characterDescriptionFragment" />
+    </fragment>
 </navigation>

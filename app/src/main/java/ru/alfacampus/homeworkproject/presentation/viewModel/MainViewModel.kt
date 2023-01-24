@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import ru.alfacampus.homeworkproject.data.dto.character.CharacterMarvel
 import ru.alfacampus.homeworkproject.data.dto.character.CharactersResponse
@@ -35,11 +36,22 @@ class MainViewModel @Inject constructor(private val repository: MarvelRepository
         }
     }
 
-    override fun onAddToFavoritesClicked(character: CharacterMarvel) {
-        // TODO: implement adding to favorites
+    fun getFavoriteCharacters() = repository.getFavoriteCharacters()
+
+    private fun saveCharacterToFavorites(character: CharacterMarvel) =
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.addCharacterToFavorites(character)
+        }
+
+    private fun deleteCharacterFromFavorites(character: CharacterMarvel) = viewModelScope.launch {
+        repository.deleteCharacterFromFavorites(character)
     }
 
-    override fun onRemoveClicked(character: CharacterMarvel) {
-        // TODO: implement hiding an element
+    override fun onAddCharacterToFavoritesClicked(character: CharacterMarvel) {
+        saveCharacterToFavorites(character)
+    }
+
+    override fun onRemoveCharacterFromFavoritesClicked(character: CharacterMarvel) {
+        deleteCharacterFromFavorites(character)
     }
 }

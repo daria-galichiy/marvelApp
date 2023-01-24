@@ -1,14 +1,19 @@
 package ru.alfacampus.homeworkproject.di
 
+import android.content.Context
+import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
+import ru.alfacampus.homeworkproject.data.db.CharactersDao
+import ru.alfacampus.homeworkproject.data.db.MarvelDatabase
 import ru.alfacampus.homeworkproject.data.service.CharactersApi
 import ru.alfacampus.homeworkproject.utils.Constants
 import ru.alfacampus.homeworkproject.utils.Constants.Companion.BASE_URL
@@ -29,7 +34,7 @@ object AppModule {
     @Provides
     fun okHttpClient() = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor())
-        .addInterceptor{ chain ->
+        .addInterceptor { chain ->
             val request = chain.request()
             val url = request.url.newBuilder()
                 .addQueryParameter(Constants.API_KEY, Constants.API_PUBLIC_KEY)
@@ -49,4 +54,20 @@ object AppModule {
             .client(okHttpClient())
             .build()
             .create()
+
+    @Provides
+    @Singleton
+    fun provideMarvelDatabase(@ApplicationContext context: Context) =
+        Room.databaseBuilder(
+            context,
+            MarvelDatabase::class.java,
+            "marvel_database"
+        )
+            .fallbackToDestructiveMigration()
+            .build()
+
+    @Provides
+    fun provideCharactersDao(appDatabase: MarvelDatabase): CharactersDao {
+        return appDatabase.getCharactersDao()
+    }
 }

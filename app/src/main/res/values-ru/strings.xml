@@ -30,4 +30,11 @@
     <string name="see_more_details_description">Кнопка увидеть больше деталей</string>
     <string name="comics_not_found_description">Комиксы не найдены</string>
     <string name="error_on_opening_browser">Произошла ошибка при попытке открыть браузер</string>
+    <string name="character_was_added_to_favorites">Персонаж добавлен в Избранное</string>
+    <string name="favorite_characters_list_title">ИЗБРАННЫЕ ПЕРСОНАЖИ</string>
+    <string name="no_favorite_characters_found">В Избранном ещё нет персонажей</string>
+    <string name="character_was_deleted">Персонаж удален из Избранного</string>
+    <string name="cancel_deletion">Отменить удаление</string>
+    <string name="main_page_title">Персонажи Marvel</string>
+    <string name="favorites_page_title">Избранное</string>
 </resources>
