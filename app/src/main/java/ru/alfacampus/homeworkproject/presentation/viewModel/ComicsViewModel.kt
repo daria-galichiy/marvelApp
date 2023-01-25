@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import ru.alfacampus.homeworkproject.data.dto.comics.ComicsResponse
 import ru.alfacampus.homeworkproject.data.repository.MarvelRepository
@@ -15,8 +16,11 @@ class ComicsViewModel @Inject constructor(private val repository: MarvelReposito
 
     val comicsLiveData: MutableLiveData<Resource<ComicsResponse>> = MutableLiveData()
 
-    fun getComicsByCharacterId(characterId: Int, limit: Int) =
-        viewModelScope.launch {
+    private var getComicsByIdJob: Job? = null
+
+    fun getComicsByCharacterId(characterId: Int, limit: Int) {
+        getComicsByIdJob?.cancel()
+        getComicsByIdJob = viewModelScope.launch {
             comicsLiveData.postValue(Resource.Loading())
             val response = repository.searchComicsByCharacterId(characterId, limit)
             if (response.isSuccessful) {
@@ -27,4 +31,5 @@ class ComicsViewModel @Inject constructor(private val repository: MarvelReposito
                 comicsLiveData.postValue(Resource.Error(response.message()))
             }
         }
+    }
 }

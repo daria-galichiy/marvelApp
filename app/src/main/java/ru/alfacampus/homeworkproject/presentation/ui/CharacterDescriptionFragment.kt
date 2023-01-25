@@ -41,7 +41,7 @@ class CharacterDescriptionFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = CharacterDescriptionBinding.inflate(layoutInflater, container, false)
         return binding.root
     }

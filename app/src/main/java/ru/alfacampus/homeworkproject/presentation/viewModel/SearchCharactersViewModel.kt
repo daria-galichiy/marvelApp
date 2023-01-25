@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import ru.alfacampus.homeworkproject.data.dto.character.CharacterMarvel
 import ru.alfacampus.homeworkproject.data.dto.character.CharactersResponse
@@ -19,8 +20,13 @@ class SearchCharactersViewModel @Inject constructor(private val repository: Marv
 
     val searchCharactersLiveData: MutableLiveData<Resource<CharactersResponse>> = MutableLiveData()
 
-    fun searchCharactersByNameStartsWith(nameStartsWith: String, limit: Int) =
-        viewModelScope.launch {
+    private var searchCharactersByNameJob: Job? = null
+    private var saveCharacterToFavoritesJob: Job? = null
+    private var deleteCharacterFromFavoritesJob: Job? = null
+
+    fun searchCharactersByNameStartsWith(nameStartsWith: String, limit: Int) {
+        searchCharactersByNameJob?.cancel()
+        searchCharactersByNameJob = viewModelScope.launch {
             searchCharactersLiveData.postValue(Resource.Loading())
             val response = repository.searchCharacters(nameStartsWith, limit)
             if (response.isSuccessful) {
@@ -31,14 +37,20 @@ class SearchCharactersViewModel @Inject constructor(private val repository: Marv
                 searchCharactersLiveData.postValue(Resource.Error(response.message()))
             }
         }
+    }
 
-    private fun saveCharacterToFavorites(character: CharacterMarvel) =
-        viewModelScope.launch(Dispatchers.IO) {
+    private fun saveCharacterToFavorites(character: CharacterMarvel) {
+        saveCharacterToFavoritesJob?.cancel()
+        saveCharacterToFavoritesJob = viewModelScope.launch(Dispatchers.IO) {
             repository.addCharacterToFavorites(character)
         }
+    }
 
-    private fun deleteCharacterFromFavorites(character: CharacterMarvel) = viewModelScope.launch {
-        repository.deleteCharacterFromFavorites(character)
+    private fun deleteCharacterFromFavorites(character: CharacterMarvel) {
+        deleteCharacterFromFavoritesJob?.cancel()
+        deleteCharacterFromFavoritesJob = viewModelScope.launch {
+            repository.deleteCharacterFromFavorites(character)
+        }
     }
 
     override fun onAddCharacterToFavoritesClicked(character: CharacterMarvel) {
