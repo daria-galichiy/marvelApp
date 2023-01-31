@@ -1,8 +1,15 @@
 package ru.alfacampus.homeworkproject.data.repository
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import ru.alfacampus.homeworkproject.data.db.CharactersDao
+import ru.alfacampus.homeworkproject.data.db.mappers.CharacterMarvelMapper
 import ru.alfacampus.homeworkproject.data.dto.character.CharacterMarvel
+import ru.alfacampus.homeworkproject.data.dto.character.CharactersResponse
+import ru.alfacampus.homeworkproject.data.entities.character.CharacterMarvelEntity
 import ru.alfacampus.homeworkproject.data.service.CharactersApi
+import ru.alfacampus.homeworkproject.utils.Resource
 import javax.inject.Inject
 
 class MarvelRepository @Inject constructor(
@@ -19,14 +26,21 @@ class MarvelRepository @Inject constructor(
         charactersApi.getComicsByCharacterId(characterId, limit)
 
 
-    fun getFavoriteCharacters() = charactersDao.getCharacters()
+    fun getFavoriteCharacters() =
+        Transformations.map(charactersDao.getCharacters(),
+            fun(initial: List<CharacterMarvelEntity>): List<CharacterMarvel> {
+                return initial.map { CharacterMarvelMapper().mapFromEntity(it) }
+            })
 
-    suspend fun addCharacterToFavorites(character: CharacterMarvel) =
-        charactersDao.insert(character)
+    suspend fun addCharacterToFavorites(character: CharacterMarvel) {
+        val characterMarvelEntity = CharacterMarvelMapper().mapToEntity(character)
+        charactersDao.insert(characterMarvelEntity)
+    }
 
-    suspend fun deleteCharacterFromFavorites(character: CharacterMarvel) =
-        charactersDao.delete(character)
-
+    suspend fun deleteCharacterFromFavorites(character: CharacterMarvel) {
+        val characterMarvelEntity = CharacterMarvelMapper().mapToEntity(character)
+        charactersDao.delete(characterMarvelEntity)
+    }
 
     fun deleteCharactersFromDb() = charactersDao.deleteCharacters()
 }

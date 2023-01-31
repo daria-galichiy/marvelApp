@@ -9,4 +9,4 @@ data class Url(
     val type: String,
     @SerialName("url")
     val url: String
-)
+) : java.io.Serializable

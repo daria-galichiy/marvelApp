@@ -2,11 +2,11 @@ package ru.alfacampus.homeworkproject.data.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import ru.alfacampus.homeworkproject.data.dto.character.CharacterMarvel
+import ru.alfacampus.homeworkproject.data.entities.character.CharacterMarvelEntity
 
 @Database(
-    entities = [CharacterMarvel::class],
-    version = 2,
+    entities = [CharacterMarvelEntity::class],
+    version = 1,
     exportSchema = true
 )
 abstract class MarvelDatabase : RoomDatabase() {

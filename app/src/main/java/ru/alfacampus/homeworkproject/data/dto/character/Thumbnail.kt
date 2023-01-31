@@ -11,4 +11,4 @@ data class Thumbnail(
     val path: String,
     @SerialName("extension")
     val extension: String
-)
+) : java.io.Serializable

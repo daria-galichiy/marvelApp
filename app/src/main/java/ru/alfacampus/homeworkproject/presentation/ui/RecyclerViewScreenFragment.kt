@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
@@ -33,7 +36,6 @@ class RecyclerViewScreenFragment : Fragment() {
     private lateinit var charactersAdapter: CharactersAdapter
     private lateinit var searchCharactersAdapter: CharactersAdapter
 
-    private var searchJob: Job? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -64,12 +66,15 @@ class RecyclerViewScreenFragment : Fragment() {
         }
 
         binding.searchInputText.addTextChangedListener { text: Editable? ->
-            searchJob?.cancel()
-            searchJob = MainScope().launch {
-                delay(Constants.SEARCH_DELAY)
-                text?.let {
-                    if (it.toString().isNotEmpty()) {
-                        searchViewModel.searchCharactersByNameStartsWith(it.toString(), 50)
+            viewLifecycleOwner.lifecycleScope.launch {
+                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    launch {
+                        delay(Constants.SEARCH_DELAY)
+                        text?.let {
+                            if (it.toString().isNotEmpty()) {
+                                searchViewModel.searchCharactersByNameStartsWith(it.toString(), 50)
+                            }
+                        }
                     }
                 }
             }
@@ -94,11 +99,6 @@ class RecyclerViewScreenFragment : Fragment() {
                 is Resource.Loading -> onFindingCharacters(response)
             }
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        searchJob?.cancel()
     }
 
     private fun onSuccessCharactersLoaded(response: Resource<CharactersResponse>) {

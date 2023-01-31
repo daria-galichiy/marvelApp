@@ -12,7 +12,7 @@ data class Result(
     @SerialName("title")
     val title: String,
     @SerialName("issueNumber")
-    val issueNumber: Int,
+    val issueNumber: String,
     @SerialName("variantDescription")
     val variantDescription: String,
     @SerialName("description")

@@ -1,18 +1,10 @@
 package ru.alfacampus.homeworkproject.data.dto.character
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import androidx.room.TypeConverters
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import ru.alfacampus.homeworkproject.data.db.converters.ListUrlConverters
-import ru.alfacampus.homeworkproject.data.db.converters.ThumbnailConverters
 
-@Entity("characters")
-@TypeConverters(ThumbnailConverters::class, ListUrlConverters::class)
 @Serializable
 data class CharacterMarvel(
-    @PrimaryKey
     @SerialName("id")
     val id: Int,
     @SerialName("name")
