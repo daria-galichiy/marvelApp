@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/comicsImage"
+            android:layout_width="@dimen/comics_image_width"
+            android:layout_height="@dimen/comics_image_height"
+            android:layout_marginStart="@dimen/common_spacing"
+            android:layout_marginTop="@dimen/common_spacing"
+            android:layout_marginEnd="@dimen/common_spacing"
+            android:contentDescription="@string/comics_image_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/comics" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/comicsName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/comics_name_description"
+            android:textAppearance="?attr/textAppearanceBody1"
+            app:layout_constraintEnd_toEndOf="@+id/comicsImage"
+            app:layout_constraintStart_toStartOf="@+id/comicsImage"
+            app:layout_constraintTop_toBottomOf="@+id/comicsImage"
+            tools:ignore="TextContrastCheck"
+            tools:text="Fantastic Four" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

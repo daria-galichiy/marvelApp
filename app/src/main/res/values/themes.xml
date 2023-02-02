@@ -32,6 +32,7 @@
         <item name="trianglesViewStyle">@style/CustomTrianglesViewStyle</item>
         <item name="customRestrictorBackgroundColor">@color/red</item>
         <item name="characterCardTextColor">@color/white</item>
+        <item name="searchFieldTextColor">@color/blue_grey</item>
         <item name="imageButtonStyle">@style/ImageButton</item>
     </style>
 

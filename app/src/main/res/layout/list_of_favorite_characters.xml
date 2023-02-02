@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/customScreenBackgroundColor">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/favoriteCharactersListTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_spacing"
+            android:layout_marginTop="@dimen/top_spacing"
+            android:text="@string/favorite_characters_list_title"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/favoriteCharactersRecyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutAnimation="@anim/recycler_layout_anim"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/common_spacing"
+            android:paddingEnd="@dimen/common_spacing"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/favoriteCharactersListTitle"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_character" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/noFavoriteCharactersTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/recyclerview_background_height"
+            android:gravity="center"
+            android:text="@string/no_favorite_characters_found"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/favoriteCharactersListTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

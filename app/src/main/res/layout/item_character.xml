@@ -1,80 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground"
-    android:clickable="true"
-    android:focusable="true">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/characterAvatar"
-        android:layout_width="@dimen/character_avatar_width"
-        android:layout_height="@dimen/character_avatar_height"
-        android:layout_marginStart="@dimen/common_spacing"
-        android:layout_marginTop="@dimen/common_spacing"
-        android:layout_marginEnd="@dimen/common_spacing"
-        android:contentDescription="@string/character_avatar_description"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/iron_man_sample" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/options"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/menu"
-        app:layout_constraintEnd_toEndOf="@+id/characterAvatar"
-        app:layout_constraintTop_toTopOf="@+id/characterAvatar" />
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/characterCardRestrictor"
-        android:layout_width="@dimen/character_avatar_width"
-        android:layout_height="@dimen/restrictor_height"
-        android:background="?attr/customRestrictorBackgroundColor"
-        app:layout_constraintEnd_toEndOf="@+id/characterAvatar"
-        app:layout_constraintStart_toStartOf="@+id/characterAvatar"
-        app:layout_constraintTop_toBottomOf="@+id/characterAvatar" />
+        <ImageView
+            android:id="@+id/characterAvatar"
+            android:layout_width="@dimen/character_avatar_width"
+            android:layout_height="@dimen/character_avatar_height"
+            android:layout_marginStart="@dimen/common_spacing"
+            android:layout_marginTop="@dimen/common_spacing"
+            android:layout_marginEnd="@dimen/common_spacing"
+            android:contentDescription="@string/character_avatar_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/iron_man_sample" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/characterCardBackground"
-        android:layout_width="@dimen/character_avatar_width"
-        android:layout_height="@dimen/character_bottom_background"
-        android:background="?attr/characterCardBackgroundColor"
-        app:layout_constraintEnd_toEndOf="@+id/characterAvatar"
-        app:layout_constraintStart_toStartOf="@+id/characterAvatar"
-        app:layout_constraintTop_toBottomOf="@+id/characterCardRestrictor" />
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/menu"
+            app:layout_constraintEnd_toEndOf="@+id/characterAvatar"
+            app:layout_constraintTop_toTopOf="@+id/characterAvatar"
+            tools:ignore="TouchTargetSizeCheck" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/characterName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_spacing"
-        android:contentDescription="@string/character_name_description"
-        android:ellipsize="end"
-        android:singleLine="true"
-        android:textAppearance="?attr/textAppearanceBody1"
-        android:textColor="?attr/characterCardTextColor"
-        app:layout_constraintEnd_toEndOf="@+id/characterCardBackground"
-        app:layout_constraintStart_toStartOf="@+id/characterCardBackground"
-        app:layout_constraintTop_toTopOf="@+id/characterCardBackground"
-        tools:text="IRON MAN" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/characterCardRestrictor"
+            android:layout_width="@dimen/character_avatar_width"
+            android:layout_height="@dimen/restrictor_height"
+            android:background="?attr/customRestrictorBackgroundColor"
+            app:layout_constraintEnd_toEndOf="@+id/characterAvatar"
+            app:layout_constraintStart_toStartOf="@+id/characterAvatar"
+            app:layout_constraintTop_toBottomOf="@+id/characterAvatar" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/characterDescription"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_spacing"
-        android:layout_marginBottom="@dimen/common_spacing"
-        android:contentDescription="@string/character_description"
-        android:ellipsize="end"
-        android:singleLine="true"
-        android:textAppearance="?attr/textAppearanceBody2"
-        android:textColor="?attr/characterCardTextColor"
-        app:layout_constraintBottom_toBottomOf="@+id/characterCardBackground"
-        app:layout_constraintEnd_toEndOf="@+id/characterName"
-        app:layout_constraintStart_toStartOf="@+id/characterName"
-        tools:text="Wounded, captured and forced to build a weapon by his enemies, billionaire industrialist" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/characterCardBackground"
+            android:layout_width="@dimen/character_avatar_width"
+            android:layout_height="@dimen/character_bottom_background"
+            android:background="?attr/characterCardBackgroundColor"
+            app:layout_constraintEnd_toEndOf="@+id/characterAvatar"
+            app:layout_constraintStart_toStartOf="@+id/characterAvatar"
+            app:layout_constraintTop_toBottomOf="@+id/characterCardRestrictor" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/characterName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_spacing"
+            android:contentDescription="@string/character_name_description"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textColor="?attr/characterCardTextColor"
+            app:layout_constraintEnd_toEndOf="@+id/characterCardBackground"
+            app:layout_constraintStart_toStartOf="@+id/characterCardBackground"
+            app:layout_constraintTop_toTopOf="@+id/characterCardBackground"
+            tools:text="IRON MAN" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/characterDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_spacing"
+            android:layout_marginBottom="@dimen/common_spacing"
+            android:contentDescription="@string/character_description"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?attr/characterCardTextColor"
+            app:layout_constraintBottom_toBottomOf="@+id/characterCardBackground"
+            app:layout_constraintEnd_toEndOf="@+id/characterName"
+            app:layout_constraintStart_toStartOf="@+id/characterName"
+            tools:text="Wounded, captured and forced to build a weapon by his enemies, billionaire industrialist" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

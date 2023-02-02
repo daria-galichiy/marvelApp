@@ -16,7 +16,25 @@
     <string name="search_character">ПОИСК</string>
     <string name="search_button">Кнопка поиска</string>
     <string name="characters_list_title">СПИСОК ПЕРСОНАЖЕЙ MARVEL</string>
-    <string name="remove">Удалить</string>
+    <string name="remove">Скрыть персонажа</string>
+    <string name="add_to_favorites">Добавить в Избранное</string>
     <string name="menu">Меню</string>
     <string name="add_character">Добавить персонажа</string>
+    <string name="no_characters_found">Поиск не дал результатов... \n \n Может, попробуете другое имя? : )</string>
+    <string name="comics_image_description">Изображение комикса</string>
+    <string name="comics_name_description">Название комикса</string>
+    <string name="comics_text_description">Список комиксов</string>
+    <string name="back_button_description">Кнопка назад к списку персонажей</string>
+    <string name="comics_text">СПИСОК КОМИКСОВ</string>
+    <string name="see_more_details_button">БОЛЬШЕ ДЕТАЛЕЙ</string>
+    <string name="see_more_details_description">Кнопка увидеть больше деталей</string>
+    <string name="comics_not_found_description">Комиксы не найдены</string>
+    <string name="error_on_opening_browser">Произошла ошибка при попытке открыть браузер</string>
+    <string name="character_was_added_to_favorites">Персонаж добавлен в Избранное</string>
+    <string name="favorite_characters_list_title">ИЗБРАННЫЕ ПЕРСОНАЖИ</string>
+    <string name="no_favorite_characters_found">В Избранном ещё нет персонажей</string>
+    <string name="character_was_deleted">Персонаж удален из Избранного</string>
+    <string name="cancel_deletion">Отменить удаление</string>
+    <string name="main_page_title">Персонажи Marvel</string>
+    <string name="favorites_page_title">Избранное</string>
 </resources>
