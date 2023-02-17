@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/favorite_characters_nav_graph"
+    app:startDestination="@id/favoriteCharactersFragment">
+
+    <fragment
+        android:id="@+id/favoriteCharactersFragment"
+        android:name="ru.alfacampus.homeworkproject.featureFavoriteCharacters.presentation.ui.FavoriteCharactersFragment"
+        android:label="FavoriteCharactersFragment" >
+
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="homeworkproject://FavoriteCharacters" />
+
+    </fragment>
+
+</navigation>

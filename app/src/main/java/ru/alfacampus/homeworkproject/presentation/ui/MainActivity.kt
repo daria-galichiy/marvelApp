@@ -7,28 +7,51 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
-import dagger.hilt.android.AndroidEntryPoint
-import ru.alfacampus.homeworkproject.R
+import ru.alfacampus.homeworkproject.coreDi.dependencies.FeatureExternalDepsContainer
+import ru.alfacampus.homeworkproject.coreDi.dependencies.FeatureExternalDepsProvider
+import ru.alfacampus.homeworkproject.R as mainR
+import ru.alfacampus.homeworkproject.featureSplashScreen.R as splashR
 import ru.alfacampus.homeworkproject.databinding.ActivityMainBinding
+import ru.alfacampus.homeworkproject.di.MarvelApp
+import ru.alfacampus.homeworkproject.navigation.NavigationFlow
+import ru.alfacampus.homeworkproject.navigation.Navigator
+import ru.alfacampus.homeworkproject.navigation.ToFlowNavigatable
+import javax.inject.Inject
 
-@AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : AppCompatActivity(),
+    FeatureExternalDepsProvider,
+    ToFlowNavigatable {
+
+    @Inject
+    override lateinit var deps: FeatureExternalDepsContainer
+    @Inject
+    lateinit var navigator: Navigator
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        (application as MarvelApp).appComponent.inject(this)
+
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+            supportFragmentManager.findFragmentById(mainR.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.startScreenFragment -> binding.bottomNavBar.visibility = View.GONE
-                R.id.customViewScreenFragment -> binding.bottomNavBar.visibility = View.GONE
+                mainR.id.startScreenFragment -> binding.bottomNavBar.visibility = View.GONE
+                splashR.id.customViewScreenFragment -> binding.bottomNavBar.visibility = View.GONE
                 else -> binding.bottomNavBar.visibility = View.VISIBLE
             }
         }
         NavigationUI.setupWithNavController(binding.bottomNavBar, navController)
+
+        navigator.navController = navController
+    }
+
+    override fun navigateToFlow(flow: NavigationFlow) {
+        navigator.navigateToFlow(flow)
     }
 }

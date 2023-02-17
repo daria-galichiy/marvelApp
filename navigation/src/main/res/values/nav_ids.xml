@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="nav_graph" type="id"/>
+    <item name="splash_nav_graph" type="id" />
+    <item name="characters_nav_graph" type="id" />
+    <item name="favorite_characters_nav_graph" type="id" />
+    <item name="character_description_nav_graph" type="id" />
+</resources>

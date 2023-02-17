@@ -9,9 +9,9 @@ import androidx.appcompat.app.AppCompatDelegate.*
 import androidx.appcompat.widget.AppCompatRadioButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import ru.alfacampus.homeworkproject.R
 import ru.alfacampus.homeworkproject.databinding.StartScreenBinding
 import ru.alfacampus.homeworkproject.presentation.helpers.ThemeMode
+import ru.alfacampus.homeworkproject.resources.R
 
 
 class StartScreenFragment : Fragment() {
@@ -63,7 +63,7 @@ class StartScreenFragment : Fragment() {
         }
 
         binding.startScreenButton.setOnClickListener {
-            val direction = StartScreenFragmentDirections.toCustomViewScreenFragment()
+            val direction = StartScreenFragmentDirections.actionStartScreenFragmentToSplashNavGraph()
             findNavController().navigate(direction)
         }
     }.root

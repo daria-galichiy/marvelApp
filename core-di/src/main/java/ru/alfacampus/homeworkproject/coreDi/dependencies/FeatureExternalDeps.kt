@@ -1,0 +1,3 @@
+package ru.alfacampus.homeworkproject.coreDi.dependencies
+
+interface FeatureExternalDeps

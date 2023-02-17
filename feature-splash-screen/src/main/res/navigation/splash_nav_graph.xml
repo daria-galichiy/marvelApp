@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/splash_nav_graph"
+    app:startDestination="@id/customViewScreenFragment">
+
+    <fragment
+        android:id="@+id/customViewScreenFragment"
+        android:name="ru.alfacampus.homeworkproject.featureSplashScreen.presentation.ui.CustomViewScreenFragment"
+        android:label="CustomViewScreenFragment" />
+</navigation>

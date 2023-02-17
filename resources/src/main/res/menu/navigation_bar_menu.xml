@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/characters_nav_graph"
+        android:icon="@drawable/ic_superhero"
+        android:title="@string/main_page_title" />
+    <item
+        android:id="@+id/favorite_characters_nav_graph"
+        android:icon="@drawable/ic_favorites_24dp"
+        android:title="@string/favorites_page_title" />
+</menu>

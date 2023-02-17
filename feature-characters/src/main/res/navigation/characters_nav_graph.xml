@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/characters_nav_graph"
+    app:startDestination="@id/charactersListScreenFragment">
+
+    <include app:graph="@navigation/character_description_nav_graph" />
+
+    <fragment
+        android:id="@+id/charactersListScreenFragment"
+        android:name="ru.alfacampus.homeworkproject.featureCharacters.presentation.ui.CharactersListScreenFragment"
+        android:label="CharactersListScreenFragment" >
+
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="homeworkproject://Characters" />
+
+    </fragment>
+
+</navigation>

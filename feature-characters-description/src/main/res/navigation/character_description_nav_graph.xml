@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/character_description_nav_graph"
+    app:startDestination="@id/charactersDescriptionFragment">
+
+    <fragment
+        android:id="@+id/charactersDescriptionFragment"
+        android:name="ru.alfacampus.homeworkproject.featureCharactersDescription.presentation.ui.CharactersDescriptionFragment"
+        android:label="CharactersDescriptionFragment" >
+
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="thumbnailPath"
+            app:argType="string" />
+        <argument
+            android:name="thumbnailExtension"
+            app:argType="string" />
+        <argument
+            android:name="url"
+            app:argType="string" />
+
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="homeworkproject://CharacterDescription/characterDescriptionArgs?id={id}&amp;name={name}&amp;description={description}&amp;thumbnailPath={thumbnailPath}&amp;thumbnailExtension={thumbnailExtension}&amp;url={url}" />
+
+    </fragment>
+</navigation>

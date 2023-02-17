@@ -14,3 +14,13 @@ dependencyResolutionManagement {
 }
 rootProject.name = "HomeworkProject"
 include ':app'
+include ':core-data'
+include ':feature-characters'
+include ':feature-characters-description'
+include ':core-network'
+include ':resources'
+include ':feature-favorite-characters'
+include ':feature-splash-screen'
+include ':core-di'
+include ':core-db'
+include ':navigation'
