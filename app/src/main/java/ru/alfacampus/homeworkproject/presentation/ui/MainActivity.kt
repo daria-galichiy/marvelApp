@@ -3,10 +3,8 @@ package ru.alfacampus.homeworkproject.presentation.ui
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupWithNavController
 import ru.alfacampus.homeworkproject.coreDi.dependencies.FeatureExternalDepsContainer
 import ru.alfacampus.homeworkproject.coreDi.dependencies.FeatureExternalDepsProvider
 import ru.alfacampus.homeworkproject.R as mainR
