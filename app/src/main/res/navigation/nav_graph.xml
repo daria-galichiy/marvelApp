@@ -15,6 +15,10 @@
         <action
             android:id="@+id/action_startScreenFragment_to_splash_nav_graph"
             app:destination="@id/splash_nav_graph" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="homeworkproject://StartScreen" />
+
     </fragment>
 
 </navigation>

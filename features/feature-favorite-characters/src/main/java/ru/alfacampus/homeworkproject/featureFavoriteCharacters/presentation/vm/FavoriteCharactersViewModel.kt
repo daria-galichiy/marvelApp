@@ -1,13 +1,17 @@
 package ru.alfacampus.homeworkproject.featureFavoriteCharacters.presentation.vm
 
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import ru.alfacampus.homeworkproject.coreData.data.entities.character.CharacterMarvelEntity
 import ru.alfacampus.homeworkproject.featureCharacters.presentation.adapter.FavoriteCharacterInteractionListener
 import ru.alfacampus.homeworkproject.featureFavoriteCharacters.data.repository.FavoriteCharactersRepository
+import ru.alfacampus.homeworkproject.navigation.DeepLinkDestination
+import ru.alfacampus.homeworkproject.navigation.deepLinkNavigateTo
 import javax.inject.Inject
 
 
@@ -40,5 +44,9 @@ class FavoriteCharactersViewModel @Inject constructor(
 
     override fun onDeleteCharacterFromFavoritesClicked(character: CharacterMarvelEntity) {
         deleteCharacterFromFavorites(character)
+    }
+
+    fun navigateToCharactersDescription(fragment: Fragment, character: CharacterMarvelEntity) {
+        findNavController(fragment).deepLinkNavigateTo(DeepLinkDestination.CharacterDescriptionDestination(character))
     }
 }

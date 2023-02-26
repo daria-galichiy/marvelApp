@@ -4,6 +4,7 @@ import androidx.core.net.toUri
 import androidx.navigation.NavController
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.NavOptions
+import ru.alfacampus.homeworkproject.coreData.data.entities.character.CharacterMarvelEntity
 
 fun buildDeepLink(destination: DeepLinkDestination) =
     NavDeepLinkRequest.Builder
@@ -27,6 +28,12 @@ fun NavController.deepLinkNavigateTo(
 }
 
 sealed class DeepLinkDestination(val address: String) {
-    class CharacterDescriptionDestination(id: String)
-        : DeepLinkDestination("homeworkproject://CharacterDescription/characterDescriptionArgs?msg=${id}")
+    class StartScreenDestination(): DeepLinkDestination("homeworkproject://StartScreen")
+    class CharacterDescriptionDestination(character: CharacterMarvelEntity)
+        : DeepLinkDestination(
+        "homeworkproject://CharacterDescription/characterDescriptionArgs?id=${character.id}" +
+                "&name=${character.name}&description=${character.description}&thumbnailPath=${character.thumbnail.path}" +
+                "&thumbnailExtension=${character.thumbnail.extension}&url=${character.urls[0].url}"
+
+    )
 }

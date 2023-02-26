@@ -19,7 +19,7 @@ class CharactersAdapter(
         val binding = ItemCharacterBinding.inflate(
             inflater, parent, false
         )
-        return CharactersViewHolder(binding, interactionListener, parent.context)
+        return CharactersViewHolder(binding, interactionListener)
     }
 
     override fun onBindViewHolder(holder: CharactersViewHolder, position: Int) {

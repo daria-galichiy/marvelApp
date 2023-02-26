@@ -38,11 +38,7 @@ class CustomViewScreenFragment : Fragment() {
             duration = SHORT_DURATION
             interpolator = AccelerateDecelerateInterpolator()
             doOnEnd {
-//                val direction = CustomViewScreenFragmentDirections.toRecyclerViewScreenFragment()
-//                findNavController().navigate(direction)
-
                 (requireActivity() as ToFlowNavigatable).navigateToFlow(NavigationFlow.CharactersFlow)
-
             }
         }
         val animator4 = ObjectAnimator.ofFloat(binding.trianglesView, View.SCALE_X, 5f, 1f).apply {

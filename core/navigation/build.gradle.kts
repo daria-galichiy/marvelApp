@@ -32,6 +32,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:core-data"))
+
     implementation(libs.androidxCore)
     implementation(libs.androidxAppcompat)
     implementation(libs.androidMaterial)

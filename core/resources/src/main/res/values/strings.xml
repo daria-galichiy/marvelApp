@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">HomeworkProject</string>
+    <string name="app_name" translatable="false">MARVEL APP</string>
     <string name="welcome_text">WELCOME TO THE</string>
     <string name="welcome_end_text">UNIVERSE</string>
     <string name="select_theme_text">Choose which side you\'re on and let\'s get started!</string>
@@ -16,7 +16,7 @@
     <string name="search_character">SEARCH</string>
     <string name="search_button">Search button</string>
     <string name="characters_list_title">MARVEL CHARACTERS LIST</string>
-    <string name="remove">Hide</string>
+    <string name="share">Share character\'s card</string>
     <string name="add_to_favorites">Add to Favorites</string>
     <string name="menu">Menu</string>
     <string name="add_character">Add a character</string>
@@ -33,6 +33,7 @@
     <string name="no_comics_found" translatable="false">No comics found...</string>
     <string name="comics_not_found_description">No comics found message</string>
     <string name="error_on_opening_browser">An error occurred when trying to open the browser</string>
+    <string name="error_on_sending_intent">An error occurred when trying to share the character</string>
     <string name="character_was_added_to_favorites">The character was added to Favorites</string>
     <string name="favorite_characters_list_title">FAVORITE CHARACTERS</string>
     <string name="no_favorite_characters_found">There are no characters in Favorites yet</string>
@@ -40,4 +41,6 @@
     <string name="cancel_deletion">Cancel deletion</string>
     <string name="main_page_title">Characters</string>
     <string name="favorites_page_title">Favorites</string>
+    <string name="share_character_title">Share characters\'s image:</string>
+    <string name="share_character_message_title">Look at the character I\'ve found in MarvelApp!</string>
 </resources>

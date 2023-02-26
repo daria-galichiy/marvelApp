@@ -1,7 +1,6 @@
 package ru.alfacampus.homeworkproject.featureFavoriteCharacters.presentation.ui
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
-import ru.alfacampus.homeworkproject.coreData.data.entities.character.CharacterMarvelEntity
 import ru.alfacampus.homeworkproject.coreDi.dependencies.findFeatureExternalDeps
 import ru.alfacampus.homeworkproject.coreDi.vm.ViewModelFactory
 import ru.alfacampus.homeworkproject.resources.R
@@ -61,9 +58,8 @@ class FavoriteCharactersFragment : Fragment() {
 
         binding.favoriteCharactersRecyclerView.adapter = favoriteCharactersAdapter
 
-        //TODO: transfer the processing of navigation events to the vm
         favoriteCharactersAdapter.setOnItemClickListener {
-            navigateToCharactersDescription(it)
+            favoriteCharactersViewModel.navigateToCharactersDescription(this, it)
         }
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
@@ -107,14 +103,5 @@ class FavoriteCharactersFragment : Fragment() {
         ItemTouchHelper(itemTouchHelperCallback).apply {
             attachToRecyclerView(binding.favoriteCharactersRecyclerView)
         }
-    }
-
-    private fun navigateToCharactersDescription(character: CharacterMarvelEntity) {
-        val uri = Uri.parse(
-            "homeworkproject://CharacterDescription/characterDescriptionArgs?id=${character.id}" +
-                    "&name=${character.name}&description=${character.description}&thumbnailPath=${character.thumbnail.path}" +
-                    "&thumbnailExtension=${character.thumbnail.extension}&url=${character.urls[0].url}"
-        )
-        findNavController().navigate(uri)
     }
 }

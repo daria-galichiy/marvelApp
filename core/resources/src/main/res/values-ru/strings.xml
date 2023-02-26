@@ -16,7 +16,7 @@
     <string name="search_character">ПОИСК</string>
     <string name="search_button">Кнопка поиска</string>
     <string name="characters_list_title">СПИСОК ПЕРСОНАЖЕЙ MARVEL</string>
-    <string name="remove">Скрыть персонажа</string>
+    <string name="share">Поделиться персонажем</string>
     <string name="add_to_favorites">Добавить в Избранное</string>
     <string name="menu">Меню</string>
     <string name="add_character">Добавить персонажа</string>
@@ -30,6 +30,7 @@
     <string name="see_more_details_description">Кнопка увидеть больше деталей</string>
     <string name="comics_not_found_description">Комиксы не найдены</string>
     <string name="error_on_opening_browser">Произошла ошибка при попытке открыть браузер</string>
+    <string name="error_on_sending_intent">Произошла ошибка при попытке поделиться персонажем</string>
     <string name="character_was_added_to_favorites">Персонаж добавлен в Избранное</string>
     <string name="favorite_characters_list_title">ИЗБРАННЫЕ ПЕРСОНАЖИ</string>
     <string name="no_favorite_characters_found">В Избранном ещё нет персонажей</string>
@@ -37,4 +38,6 @@
     <string name="cancel_deletion">Отменить удаление</string>
     <string name="main_page_title">Персонажи Marvel</string>
     <string name="favorites_page_title">Избранное</string>
+    <string name="share_character_title">Поделиться изображением персонаажа:</string>
+    <string name="share_character_message_title">Взгляни на персонажа, которого я нашёл в MarvelApp!</string>
 </resources>

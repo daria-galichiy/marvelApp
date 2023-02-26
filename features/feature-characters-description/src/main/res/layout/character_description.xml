@@ -18,11 +18,12 @@
 
             <ImageView
                 android:id="@+id/characterAvatar"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="@dimen/character_description_image_height"
                 android:contentDescription="@string/character_avatar_description"
                 android:scaleType="centerCrop"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@drawable/iron_man_sample" />
 
@@ -78,7 +79,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/comicsRecyclerView"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layoutAnimation="@anim/recycler_layout_anim"
                 android:orientation="horizontal"

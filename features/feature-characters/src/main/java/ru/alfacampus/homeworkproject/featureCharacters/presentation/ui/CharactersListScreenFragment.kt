@@ -1,26 +1,30 @@
 package ru.alfacampus.homeworkproject.featureCharacters.presentation.ui
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.Editable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.*
-import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ru.alfacampus.homeworkproject.characters.databinding.ListOfCharactersBinding
 import ru.alfacampus.homeworkproject.coreData.data.entities.character.CharacterMarvelEntity
+import ru.alfacampus.homeworkproject.coreData.data.entities.character.CharactersResponseEntity
 import ru.alfacampus.homeworkproject.coreDi.dependencies.findFeatureExternalDeps
 import ru.alfacampus.homeworkproject.coreDi.vm.ViewModelFactory
 import ru.alfacampus.homeworkproject.coreNetwork.utils.Resource
-import ru.alfacampus.homeworkproject.coreData.data.entities.character.CharactersResponseEntity
 import ru.alfacampus.homeworkproject.featureCharacters.presentation.adapter.CharactersAdapter
 import ru.alfacampus.homeworkproject.featureCharacters.presentation.vm.CharactersComponentDepsProvider
 import ru.alfacampus.homeworkproject.featureCharacters.presentation.vm.CharactersComponentViewModel
@@ -28,6 +32,7 @@ import ru.alfacampus.homeworkproject.featureCharacters.presentation.vm.Character
 import ru.alfacampus.homeworkproject.featureCharacters.presentation.vm.SearchCharactersViewModel
 import ru.alfacampus.homeworkproject.featureCharacters.utils.Constants
 import javax.inject.Inject
+import ru.alfacampus.homeworkproject.resources.R as mainR
 
 
 class CharactersListScreenFragment : Fragment() {
@@ -68,13 +73,12 @@ class CharactersListScreenFragment : Fragment() {
         searchCharactersAdapter = CharactersAdapter(searchViewModel)
         binding.searchCharactersRecyclerView.adapter = searchCharactersAdapter
 
-        //TODO: transfer the processing of navigation events to the vm
         charactersAdapter.setOnItemClickListener {
-            navigateToCharactersDescription(it)
+            charactersViewModel.navigateToCharactersDescription(this, it)
         }
 
         searchCharactersAdapter.setOnItemClickListener {
-            navigateToCharactersDescription(it)
+            searchViewModel.navigateToCharactersDescription(this, it)
         }
 
         //TODO: get rid of nesting
@@ -118,6 +122,28 @@ class CharactersListScreenFragment : Fragment() {
                 }
             }
         }
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            charactersViewModel.shareCharacterStateFlow.collect { character ->
+                if (character != null)
+                    onShareCharacterClicked(character, true)
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            searchViewModel.shareFoundCharacterStateFlow.collect { character ->
+                if (character != null)
+                    onShareCharacterClicked(character)
+            }
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    charactersViewModel.navigateToStartScreen(this@CharactersListScreenFragment)
+                }
+            })
     }
 
     private fun onSuccessCharactersLoaded(response: Resource<CharactersResponseEntity>) {
@@ -178,12 +204,50 @@ class CharactersListScreenFragment : Fragment() {
         binding.searchProgressBar.visibility = View.VISIBLE
     }
 
-    private fun navigateToCharactersDescription(character: CharacterMarvelEntity) {
-        val uri = Uri.parse(
-            "homeworkproject://CharacterDescription/characterDescriptionArgs?id=${character.id}" +
-                    "&name=${character.name}&description=${character.description}&thumbnailPath=${character.thumbnail.path}" +
-                    "&thumbnailExtension=${character.thumbnail.extension}&url=${character.urls[0].url}"
-        )
-        findNavController().navigate(uri)
+    private fun onShareCharacterClicked(
+        character: CharacterMarvelEntity,
+        isCalledFromCharactersRecyclerView: Boolean = false
+    ) {
+        try {
+
+            val bitmapImage = if (isCalledFromCharactersRecyclerView)
+                charactersViewModel.characterImageBitmap
+            else
+                searchViewModel.foundCharacterImageBitmap
+
+            val bitmapPath = MediaStore.Images.Media.insertImage(
+                requireContext().contentResolver,
+                bitmapImage,
+                "Character", null
+            )
+
+            val sendIntent: Intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT,
+                    getString(mainR.string.share_character_message_title) + "\n"
+                            + character.name + "\n" + character.description)
+                putExtra(
+                    Intent.EXTRA_STREAM,
+                    Uri.parse(bitmapPath)
+                )
+                type = "image/*"
+            }
+            val shareIntent = Intent.createChooser(
+                sendIntent,
+                getString(mainR.string.share_character_title)
+            )
+            ContextCompat.startActivity(requireContext(), shareIntent, null)
+        } catch (e: Exception) {
+            Toast.makeText(
+                context,
+                getString(mainR.string.error_on_sending_intent),
+                Toast.LENGTH_SHORT
+            ).show()
+        } finally {
+            if (isCalledFromCharactersRecyclerView)
+                charactersViewModel.onCharacterShared()
+            else
+                searchViewModel.onFoundCharacterShared()
+        }
     }
 }

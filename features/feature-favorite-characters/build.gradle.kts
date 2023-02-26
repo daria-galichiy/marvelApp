@@ -39,10 +39,12 @@ dependencies {
     implementation(project(":core:core-di"))
     implementation(project(":core:core-db"))
     implementation(project(":core:resources"))
+    implementation(project(":core:navigation"))
 
     implementation(libs.androidxCore)
     implementation(libs.androidxAppcompat)
     implementation(libs.androidMaterial)
+    implementation(project(mapOf("path" to ":core:navigation")))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidxTestJunit)
     androidTestImplementation(libs.androidxTestEspresso)
