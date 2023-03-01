@@ -10,5 +10,6 @@ class Navigator @Inject constructor(){
     fun navigateToFlow(navigationFlow: NavigationFlow) = when (navigationFlow) {
         is NavigationFlow.CharactersFlow -> navController.navigate(MainNavGraphDirections.actionGlobalCharactersFlow())
         is NavigationFlow.FavoriteCharactersFlow -> navController.navigate(MainNavGraphDirections.actionGlobalFavoriteCharactersFlow())
+        is NavigationFlow.CreatedCharactersFlow -> navController.navigate(MainNavGraphDirections.actionGlobalCreatedCharactersFlow())
     }
 }

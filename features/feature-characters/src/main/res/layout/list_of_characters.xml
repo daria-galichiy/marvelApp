@@ -118,15 +118,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/searchInputText" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/fab_margin"
-                android:contentDescription="@string/add_character"
+            <ImageView
+                android:id="@+id/myImageView"
+                android:layout_width="500dp"
+                android:layout_height="500dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/ic_add_24dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchInputText" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/charactersGroup"
@@ -134,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:visibility="visible"
                 app:constraint_referenced_ids="charactersRecyclerView,
-                searchBtn,searchInputText,fab,searchCharactersRecyclerView" />
+                searchBtn,searchInputText,searchCharactersRecyclerView" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/copyright_text"

@@ -21,7 +21,8 @@
         <activity
             android:name="ru.alfacampus.homeworkproject.presentation.ui.MainActivity"
             android:exported="true"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="fullSensor"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

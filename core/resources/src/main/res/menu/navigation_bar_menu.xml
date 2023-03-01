@@ -8,4 +8,8 @@
         android:id="@+id/favorite_characters_nav_graph"
         android:icon="@drawable/ic_favorites_24dp"
         android:title="@string/favorites_page_title" />
+    <item
+        android:id="@+id/created_characters_nav_graph"
+        android:icon="@drawable/ic_idea_24dp"
+        android:title="@string/created_characters_page_title" />
 </menu>

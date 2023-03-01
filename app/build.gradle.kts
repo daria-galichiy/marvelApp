@@ -52,6 +52,7 @@ dependencies {
     implementation(project(":features:feature-characters"))
     implementation(project(":features:feature-characters-description"))
     implementation(project(":features:feature-favorite-characters"))
+    implementation(project(":features:feature-created-characters"))
     implementation(project(":features:feature-splash-screen"))
     implementation(project(":core:navigation"))
 

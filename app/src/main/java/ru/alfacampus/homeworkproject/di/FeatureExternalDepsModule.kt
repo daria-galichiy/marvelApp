@@ -3,6 +3,7 @@ package ru.alfacampus.homeworkproject.di
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
+import ru.alfacampus.featureCreatedCharacters.di.CreatedCharactersDeps
 import ru.alfacampus.homeworkproject.coreDi.dependencies.FeatureExternalDeps
 import ru.alfacampus.homeworkproject.coreDi.dependencies.FeatureExternalDepsKey
 import ru.alfacampus.homeworkproject.featureCharacters.di.CharactersDeps
@@ -26,4 +27,9 @@ interface FeatureExternalDepsModule {
     @IntoMap
     @FeatureExternalDepsKey(FavoriteCharactersDeps::class)
     fun bindFavoriteCharactersDeps(appComponent: AppComponent): FeatureExternalDeps
+
+    @Binds
+    @IntoMap
+    @FeatureExternalDepsKey(CreatedCharactersDeps::class)
+    fun bindCreatedCharactersDeps(appComponent: AppComponent): FeatureExternalDeps
 }

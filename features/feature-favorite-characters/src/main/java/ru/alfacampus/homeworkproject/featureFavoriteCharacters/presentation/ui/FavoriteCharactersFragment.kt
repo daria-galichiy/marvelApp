@@ -65,10 +65,8 @@ class FavoriteCharactersFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             favoriteCharactersViewModel.getFavoriteCharacters().collect() { favoriteCharacters ->
                 favoriteCharactersAdapter.submitList(favoriteCharacters)
-                if (favoriteCharacters.isEmpty())
-                    binding.noFavoriteCharactersTextView.visibility = View.VISIBLE
-                else
-                    binding.noFavoriteCharactersTextView.visibility = View.INVISIBLE
+                binding.noFavoriteCharactersTextView.visibility =
+                    if (favoriteCharacters.isEmpty()) View.VISIBLE else View.INVISIBLE
             }
         }
 

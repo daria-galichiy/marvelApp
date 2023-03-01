@@ -1,26 +1,25 @@
 package ru.alfacampus.homeworkproject.featureCharacters.presentation.ui
 
 import android.content.Context
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.text.Editable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.core.content.ContextCompat
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.*
+import com.bumptech.glide.Glide
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import ru.alfacampus.homeworkproject.resources.R as mainR
 import ru.alfacampus.homeworkproject.characters.databinding.ListOfCharactersBinding
-import ru.alfacampus.homeworkproject.coreData.data.entities.character.CharacterMarvelEntity
 import ru.alfacampus.homeworkproject.coreData.data.entities.character.CharactersResponseEntity
 import ru.alfacampus.homeworkproject.coreDi.dependencies.findFeatureExternalDeps
 import ru.alfacampus.homeworkproject.coreDi.vm.ViewModelFactory
@@ -31,8 +30,8 @@ import ru.alfacampus.homeworkproject.featureCharacters.presentation.vm.Character
 import ru.alfacampus.homeworkproject.featureCharacters.presentation.vm.CharactersViewModel
 import ru.alfacampus.homeworkproject.featureCharacters.presentation.vm.SearchCharactersViewModel
 import ru.alfacampus.homeworkproject.featureCharacters.utils.Constants
+import ru.alfacampus.homeworkproject.featureCharacters.utils.SendIntentCreator
 import javax.inject.Inject
-import ru.alfacampus.homeworkproject.resources.R as mainR
 
 
 class CharactersListScreenFragment : Fragment() {
@@ -97,10 +96,6 @@ class CharactersListScreenFragment : Fragment() {
             }
         }
 
-        binding.fab.setOnClickListener {
-            //TODO: come up with implementation or delete the fab
-        }
-
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             charactersViewModel.charactersStateFlow.collect { response ->
                 when (response) {
@@ -126,14 +121,22 @@ class CharactersListScreenFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             charactersViewModel.shareCharacterStateFlow.collect { character ->
                 if (character != null)
-                    onShareCharacterClicked(character, true)
+                    SendIntentCreator().createCharacterSendIntent(
+                        this@CharactersListScreenFragment.requireContext(),
+                        charactersViewModel,
+                        character
+                    )
             }
         }
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             searchViewModel.shareFoundCharacterStateFlow.collect { character ->
                 if (character != null)
-                    onShareCharacterClicked(character)
+                    SendIntentCreator().createCharacterSendIntent(
+                        this@CharactersListScreenFragment.requireContext(),
+                        searchViewModel,
+                        character
+                    )
             }
         }
 
@@ -202,52 +205,5 @@ class CharactersListScreenFragment : Fragment() {
         binding.noSearchResultsTextView.visibility = View.INVISIBLE
         binding.searchCharactersRecyclerView.visibility = View.INVISIBLE
         binding.searchProgressBar.visibility = View.VISIBLE
-    }
-
-    private fun onShareCharacterClicked(
-        character: CharacterMarvelEntity,
-        isCalledFromCharactersRecyclerView: Boolean = false
-    ) {
-        try {
-
-            val bitmapImage = if (isCalledFromCharactersRecyclerView)
-                charactersViewModel.characterImageBitmap
-            else
-                searchViewModel.foundCharacterImageBitmap
-
-            val bitmapPath = MediaStore.Images.Media.insertImage(
-                requireContext().contentResolver,
-                bitmapImage,
-                "Character", null
-            )
-
-            val sendIntent: Intent = Intent().apply {
-                action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT,
-                    getString(mainR.string.share_character_message_title) + "\n"
-                            + character.name + "\n" + character.description)
-                putExtra(
-                    Intent.EXTRA_STREAM,
-                    Uri.parse(bitmapPath)
-                )
-                type = "image/*"
-            }
-            val shareIntent = Intent.createChooser(
-                sendIntent,
-                getString(mainR.string.share_character_title)
-            )
-            ContextCompat.startActivity(requireContext(), shareIntent, null)
-        } catch (e: Exception) {
-            Toast.makeText(
-                context,
-                getString(mainR.string.error_on_sending_intent),
-                Toast.LENGTH_SHORT
-            ).show()
-        } finally {
-            if (isCalledFromCharactersRecyclerView)
-                charactersViewModel.onCharacterShared()
-            else
-                searchViewModel.onFoundCharacterShared()
-        }
     }
 }

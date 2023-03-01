@@ -43,4 +43,15 @@
     <string name="favorites_page_title">Favorites</string>
     <string name="share_character_title">Share characters\'s image:</string>
     <string name="share_character_message_title">Look at the character I\'ve found in MarvelApp!</string>
+    <string name="character_creation_screen_title">CHARACTER CREATION</string>
+    <string name="character_creation_name">Character name</string>
+    <string name="character_creation_description">Character description</string>
+    <string name="create_character_button_description">Button to create a character</string>
+    <string name="create_character_button">CREATE THE CHARACTER</string>
+    <string name="created_characters_page_title">My characters</string>
+    <string name="created_characters_screen_title">CREATED CHARACTERS</string>
+    <string name="no_created_characters_found">There are no created characters yet</string>
+    <string name="empty_fields_error_toast">All fields must be filled in to create a character</string>
+    <string name="empty_avatar_error_toast">Please, click on the image to select an avatar for the character</string>
+    <string name="created_character_was_deleted">The character was deleted</string>
 </resources>

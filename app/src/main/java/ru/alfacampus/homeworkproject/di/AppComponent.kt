@@ -3,6 +3,7 @@ package ru.alfacampus.homeworkproject.di
 import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
+import ru.alfacampus.featureCreatedCharacters.di.CreatedCharactersDeps
 import ru.alfacampus.homeworkproject.coreDb.di.DatabaseModule
 import ru.alfacampus.homeworkproject.coreDi.scopes.AppScope
 import ru.alfacampus.homeworkproject.coreNetwork.di.NetworkModule
@@ -28,14 +29,17 @@ import javax.inject.Singleton
 interface AppComponent :
     CharactersDeps,
     CharactersDescriptionDeps,
-    FavoriteCharactersDeps {
+    FavoriteCharactersDeps,
+    CreatedCharactersDeps {
 
     fun inject(appActivity: MainActivity)
 
     @Component.Factory
     interface Factory {
-        fun create(@BindsInstance context: Context,
-                   @BindsInstance navigator: Navigator): AppComponent
+        fun create(
+            @BindsInstance context: Context,
+            @BindsInstance navigator: Navigator
+        ): AppComponent
     }
 
 //    fun inject(app: MarvelApp)

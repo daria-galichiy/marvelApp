@@ -40,4 +40,15 @@
     <string name="favorites_page_title">Избранное</string>
     <string name="share_character_title">Поделиться изображением персонаажа:</string>
     <string name="share_character_message_title">Взгляни на персонажа, которого я нашёл в MarvelApp!</string>
+    <string name="character_creation_screen_title">СОЗДАНИЕ ПЕРСОНАЖА</string>
+    <string name="character_creation_name">Имя персонажа</string>
+    <string name="character_creation_description">Описание персонажа</string>
+    <string name="create_character_button_description">Кнопка создания персонажа</string>
+    <string name="create_character_button">СОЗДАТЬ ПЕРСОНАЖА</string>
+    <string name="created_characters_page_title">Мои персонажи</string>
+    <string name="created_characters_screen_title">СОЗДАННЫЕ ПЕРСОНАЖИ</string>
+    <string name="no_created_characters_found">Здесь ещё нет созданных персонажей</string>
+    <string name="empty_fields_error_toast">Нужно заполнить все поля, чтобы создать персонажа</string>
+    <string name="empty_avatar_error_toast">Пожалуйста, нажмите на изображение, чтобы выбрать аватар для персонажа</string>
+    <string name="created_character_was_deleted">Персонаж удалён</string>
 </resources>

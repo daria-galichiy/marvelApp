@@ -5,4 +5,5 @@
     <item name="characters_nav_graph" type="id" />
     <item name="favorite_characters_nav_graph" type="id" />
     <item name="character_description_nav_graph" type="id" />
+    <item name="created_characters_nav_graph" type="id" />
 </resources>

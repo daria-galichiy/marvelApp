@@ -6,6 +6,7 @@ import dagger.Module
 import dagger.Provides
 import ru.alfacampus.homeworkproject.coreDb.db.MarvelDatabase
 import ru.alfacampus.homeworkproject.coreDb.db.dao.CharactersDao
+import ru.alfacampus.homeworkproject.coreDb.db.dao.CreatedCharactersDao
 import javax.inject.Singleton
 
 
@@ -28,4 +29,8 @@ object DatabaseModule {
     @Provides
     fun provideCharactersDao(appDatabase: MarvelDatabase): CharactersDao =
         appDatabase.getCharactersDao()
+
+    @Provides
+    fun provideCreatedCharactersDao(appDatabase: MarvelDatabase): CreatedCharactersDao =
+        appDatabase.getCreatedCharactersDao()
 }
