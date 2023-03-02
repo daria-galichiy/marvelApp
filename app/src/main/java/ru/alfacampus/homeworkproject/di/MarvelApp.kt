@@ -13,16 +13,4 @@ class MarvelApp : Application() {
         appComponent = DaggerAppComponent.factory()
             .create(this, Navigator())
     }
-
-//    val appComponent: AppComponent by lazy {
-//        DaggerAppComponent.builder()
-//            .application(this)
-//            .applicationModule(AppModule(this))
-//            .build()
-//    }
-//
-//    override fun onCreate() {
-//        super.onCreate()
-//        appComponent.inject(this)
-//    }
 }

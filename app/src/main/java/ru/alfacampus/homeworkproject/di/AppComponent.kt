@@ -41,15 +41,4 @@ interface AppComponent :
             @BindsInstance navigator: Navigator
         ): AppComponent
     }
-
-//    fun inject(app: MarvelApp)
-
-//    @Component.Builder
-//    interface Builder {
-//
-//        @BindsInstance
-//        fun application(application: Application): Builder
-//
-//        fun build(): AppComponent
-//    }
 }
