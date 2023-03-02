@@ -4,6 +4,7 @@ import ru.alfacampus.homeworkproject.coreData.data.entities.character.CharacterM
 import ru.alfacampus.homeworkproject.coreData.data.mappers.EntityMapper
 import ru.alfacampus.homeworkproject.coreDb.db.entities.CharacterDbEntity
 
+//TODO: remove redundant interface
 interface CharacterDbMapper: EntityMapper<CharacterMarvelEntity, CharacterDbEntity> {
     override fun mapToEntity(dto: CharacterMarvelEntity): CharacterDbEntity
     override fun mapFromEntity(entity: CharacterDbEntity): CharacterMarvelEntity

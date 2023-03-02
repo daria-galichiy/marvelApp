@@ -94,14 +94,17 @@ class CharacterCreationFragment : Fragment() {
 
         with(binding) {
             createCharacterButton.setOnClickListener {
-                if (characterName.text.isEmpty() || characterDescription.text.isEmpty())
+                if (characterName.text.isEmpty() || characterDescription.text.isEmpty()) {
                     showShortToast(getString(mainR.string.empty_fields_error_toast))
-                else if (!isCharacterAvatarWasUploaded)
+                }
+                else if (!isCharacterAvatarWasUploaded) {
                     showShortToast(getString(mainR.string.empty_avatar_error_toast))
-                else
+                }
+                else {
                     createCharacter(isNewCharacter)
                 //TODO: transfer the method call into vm
                     findNavController().popBackStack()
+                }
             }
 
             characterAvatar.setOnClickListener {
