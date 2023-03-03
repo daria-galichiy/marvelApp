@@ -13,11 +13,11 @@ that allows you to view information about the Marvel universe.
 
 <img src="gif\2.gif" width="250" height="400" />
 
-* Ability to search for characters and add them to Favorites
+* The ability to search for characters and add them to Favorites
 
 <img src="gif\3.gif" width="250" height="400" />
 
-* Option to share a character card
+* The option to share a character card
 
 <img src="gif\4.gif" width="250" height="400" />
 
@@ -29,7 +29,7 @@ that allows you to view information about the Marvel universe.
 
 <img src="gif\6.gif" width="250" height="400" />
 
-* Ability to edit characters
+* The ability to edit characters
 
 <img src="gif\7.gif" width="250" height="400" />
 
@@ -37,19 +37,19 @@ that allows you to view information about the Marvel universe.
 
 Marvel App is a multi-module application built on the MVVM architecture. It consists of the following modules:
 * App
-* Core
-«-» core-data
-«-» core-db
-«-» core-di
-«-» core-network
-«-» navigation
-«-» resources
+* Core  
+  - core-data  
+  - core-db  
+  - core-di  
+  - core-network  
+  - navigation  
+  - resources  
 * Features
-«-» feature-characters
-«-» feature-characters-description 
-«-» feature-created-characters
-«-» feature-favorite-characters
-«-» feature-splash-screen
+  - feature-characters  
+  - feature-characters-description   
+  - feature-created-characters  
+  - feature-favorite-characters  
+  - feature-splash-screen  
 
 ## Technology stack
 
